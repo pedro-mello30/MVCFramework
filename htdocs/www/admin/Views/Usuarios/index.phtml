@@ -1,0 +1,66 @@
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Usuários</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a class="btn btn-sm btn-outline-secondary" href="<?= URL_ADMIN ?>usuarios/adicionar">
+            <span data-feather="plus"></span> Adicionar
+        </a>
+    </div>
+</div>
+    <table id="data-table" class="table table-striped table-bordered data-table" style="width:100%">
+        <thead>
+        <tr>
+
+            <?php  foreach ( $usuarios[0] as $key => $i): ?>
+                <th><?= $key ?></th>
+            <?php endforeach; ?>
+
+            <th class="wactions">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php  foreach ( $usuarios as $info): ?>
+
+            <tr>
+                <?php  foreach ( $info as $key => $i): ?>
+                    <td><?= substr($i, 0, 15) ?><?= (strlen($i) > 15) ? "..." : "" ?></td>
+                <?php endforeach; ?>
+
+
+                <td class='wactions'>
+
+                    <!-- EDITAR -->
+                    <a title='editar' href='<?= URL_ADMIN ?>usuarios/editar/<?= $info['id_admin_users'] ?>' class='btn btn-small btn-success'>
+                        <span data-feather="edit"></span>
+                    </a>
+
+                    <!-- EXCLUIR -->
+                    <a id="delete<?= $i[$key] ?>" title='excluir' data='<?= URL_ADMIN ?>usuarios/delete/<?= $info['id_admin_users'] ?>' onclick="del(this.id)" class='btn btn-small btn-danger'>
+                        <span data-feather="delete"></span>
+                    </a>
+                </td>
+
+
+            </tr>
+
+        <?php endforeach; ?>
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

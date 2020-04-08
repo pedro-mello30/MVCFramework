@@ -1,0 +1,149 @@
+  <!DOCTYPE html>
+  <html class="no-js" lang="pt-br">
+
+  <head>
+      <title>Admin Template PHP</title>
+
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+      <!-- <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'> -->
+      <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+
+
+
+      <!-- CSS -->
+      <link rel="stylesheet" type="text/css" href="<?= CSS ?>style.css" />
+      <link rel="stylesheet" type="text/css" href="<?= CSS ?>dataTables.bootstrap4.min.css" />
+
+  </head>
+
+
+
+
+  <body>
+
+
+
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Admin</a>
+<!--      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+      <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+              <a class="nav-link" href="<?= URL_ADMIN ?>home/logout">Sign out</a>
+          </li>
+      </ul>
+  </nav>
+  <div class="container-fluid">
+      <div class="row">
+          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+              <div class="sidebar-sticky">
+                  <ul class="nav flex-column">
+                      <li class="nav-item">
+                          <a class="nav-link <?= (RedirectHelper::getCurrentController() == "home") ? "active" : "" ?>" href="<?= URL_ADMIN ?>home">
+                              <span data-feather="home"></span>
+                              Dashboard <span class="sr-only">(current)</span>
+                          </a>
+                      </li>
+                      <li class="nav-item d-flex justify-content-between align-items-center text-muted pr-3">
+                          <a class="nav-link <?= (RedirectHelper::getCurrentController() == "usuarios") ? "active" : "" ?>" href="<?= URL_ADMIN ?>usuarios">
+                              <span data-feather="users"></span>
+                              Usuários
+                          </a>
+                          <a class="d-flex align-items-center text-muted" href="<?= URL_ADMIN ?>usuarios/adicionar">
+                                                        <span data-feather="plus-circle"></span>
+                                                    </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link <?= (RedirectHelper::getCurrentController() == "contato") ? "active" : "" ?>" href="<?= URL_ADMIN ?>contato">
+                              <span data-feather="file"></span>
+                              Contatos
+                          </a>
+                      </li>
+                  </ul>
+
+<!--                  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">-->
+<!--                      <span>Saved reports</span>-->
+<!--                      <a class="d-flex align-items-center text-muted" href="#">-->
+<!--                          <span data-feather="plus-circle"></span>-->
+<!--                      </a>-->
+<!--                  </h6>-->
+<!--                  <ul class="nav flex-column mb-2">-->
+<!--                      <li class="nav-item">-->
+<!--                          <a class="nav-link" href="#">-->
+<!--                              <span data-feather="file-text"></span>-->
+<!--                              Current month-->
+<!--                          </a>-->
+<!--                      </li>-->
+<!--                  </ul>-->
+<!--                  -->
+
+              </div>
+          </nav>
+
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+              {conteudo}
+
+          </main>
+  <footer>
+
+
+
+  </footer>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+  <!-- <script src="<?= JS ?>jquery.modal.js" type="text/javascript" charset="utf-8"></script> -->
+  <!-- </script> -->
+  <!-- VALIDATE -->
+  <script type="text/javascript" src="<?= JS ?>jquery.validate.js"></script>
+
+          <script src="<?= URL_ADMIN ?>js/jquery.dataTables.min.js"></script>
+          <script src="<?= URL_ADMIN ?>js/dataTables.bootstrap4.min.js"></script>
+          <!-- Latest compiled and minified JavaScript -->
+  <script src="<?= JS ?>site.min.js"></script>
+
+
+  </body>
+
+  </html>
+
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <script>
+      feather.replace()
+  </script>
+<script type="text/javascript">
+
+  $('.data-table').DataTable({
+        language: {
+            search:         "Buscar:",
+            lengthMenu:    "Exibir _MENU_ itens",
+            info:           "Exibindo _START_ de _TOTAL_ itens",
+            zeroRecords:    "Nenhum item encontrado",
+            emptyTable:    "Nenhum item encontrado",
+            paginate: {
+                first:      "Primeira",
+                previous:   "Anterior",
+                next:       "Próxima",
+                last:       "Última"
+            },
+        }
+    });
+
+
+
+  // Função para perguntar sobre exclusão de item
+  function del (id)
+  {
+    if(confirm('Tem certeza que deseja excluir?'))
+      window.location.href = $("#" + id).attr("data");
+  }
+
+</script>
+
+</body>
+</html>
