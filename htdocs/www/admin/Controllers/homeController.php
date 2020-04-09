@@ -107,23 +107,13 @@ class home extends Controller
 //        $users = Usuarios_ModelA::getAll();
 //        print_r($users);
 
-        $usersByName = Usuarios_ModelA::getAllBy("name", "testeUpdate" , null, null, true);
+        $usersByName = Usuarios_Model::getAll();
         print_r($usersByName);
 
-        $usersByName[0]->username = "testeUpdate";
-        print_r($usersByName);
-        $usersByName[0]->save(true);
 
 
-        $newUser = new Usuarios_ModelA();
-        $newUser->name = "abc";
-        $newUser->username = "abc";
-        $newUser->email = "abc@abc.com";
-        $newUser->password = "1234567";
+        $user = Usuarios_Model::getBy("id_admin_users", 3);
 
-        var_dump($newUser->id_admin_users);
-        $newUser->save(true);
-        print_r($newUser);
 
 
 

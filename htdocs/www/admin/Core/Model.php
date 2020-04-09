@@ -35,239 +35,275 @@
  *
  */
 
-class Model
+abstract class Model
 {
-	protected $db;
-	public    $_tabela;
-	public    $_fk;
+    //// Static ////
 
-	public function __construct()
-	{
-		if( in_array( $_SERVER['REMOTE_ADDR'], array( '127.0.0.1', '::1' ) ) ) {
-            $database = DATABASE_CONFIG::$staging;
-        } else {
-            $database = DATABASE_CONFIG::$production;
-        }
+    private static $connectionPDO;
 
-        extract($database);
-		$this -> db = new PDO("mysql:host=$host;dbname=$banco", "$login", "$senha", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'));
-		if(!$this -> db) die('Erro ao conectar ao banco de dado');
-	}
-
-	public function insert( Array $dados, $debug = FALSE )
-	{
-		$fields = $this -> getTableField();
-
-		foreach ($dados as $ind => $val)
-		{
-			if(in_array($ind, $fields))
-			{
-				$dadosBD[$ind] = $val;
-			}
-		}
-
-		//INSERT DINAMICO BASEADO EM ARRAY DE DADOS
-		$campos	  =  implode(",", array_keys($dadosBD));
-		$valores  =  ":" . implode(",:", array_keys($dadosBD));
-
-
-		//FAZ O DEBUG DA STRING SQL
-		if($debug)
-		{
-			$valoresDebug = "'" . implode("','", $dadosBD) . "'";
-			$this -> debug ( "INSERT INTO `{$this->_tabela}` ({$campos}) values ({$valoresDebug})" );
-		}
-
-		//TENTA INSERIR OS DADOS
-		try
-		{
-			//PREPARA OS DADOS PARA INSERT USANDO PREPARED STATEMENTS
-			$ps = $this -> db -> prepare("INSERT INTO `{$this->_tabela}` ({$campos}) values ({$valores})");
-
-			//PASSA OS VALORES CORRETOS BASEADOS NO PARAMETROS DA STRING
-			foreach ($dadosBD as $key => $value){
-			 	$ps->bindValue(":$key", $value);
-			}
-
-			//EXECUTA A QUERY
-			$executa = $ps->execute();
-
-		} catch (PDOexception $e) {
-			echo $e->getMessage();
-		}
-
-		return $this -> db ->lastInsertId();
-	}
-
-	public function read( $where = null , $limit = null , $offset = null , $orderby = null, $debug = FALSE )
-	{
-		$where    = ($where   != null ? "WHERE {$where}"      : "");
-	 	$limit    = ($limit   != null ? "LIMIT {$limit}" 	  : "");
-	 	$offset   = ($offset  != null ? "OFFSET {$offset}" 	  : "");
-	 	$orderby  = ($orderby != null ? "ORDER BY {$orderby}" : "");
-
-	 	if($debug)
-	 		$this -> debug("SELECT * FROM `{$this->_tabela}` {$where} {$orderby} {$limit} {$offset}");
-
-	 	$query = $this -> db -> prepare("SELECT * FROM `{$this->_tabela}` {$where} {$orderby} {$limit} {$offset}");
-	 	$query -> execute();
-	 	return $query -> fetchAll(PDO::FETCH_ASSOC);
-	}
-
-	public function readLine( $where = null , $limit = null , $offset = null , $orderby = null, $debug = FALSE )
-	{
-		$where    = ($where   != null ? "WHERE {$where}"      : "");
-
-
-		if($debug)
-	 		$this -> debug("SELECT * FROM `{$this->_tabela}` {$where}");
-
-
-	 	$query = $this -> db -> prepare("SELECT * FROM `{$this->_tabela}` {$where}");
-	 	$query -> execute();
-	 	return $query -> fetch(PDO::FETCH_ASSOC);
-	}
-
-
-
-	public function update( Array $dados, $where, $debug = FALSE )
-	{
-		$fields = $this -> getTableField();
-
-		foreach ($dados as $ind => $val)
-		{
-			if(in_array($ind, $fields))
-			{
-				$campos[] = "{$ind} = :{$ind}";
-				$dadosBD[$ind] = $val;
-			}
-		}
-
-
-		$campos = implode(",", $campos);
-
-
-
-		//FAZ O DEBUG DA STRING SQL
-		if($debug)
-		{
-			foreach ($dadosBD as $key => $value){ $camposDebug[] = "$key = '$value'"; }
-			$camposDebug = implode(",", $camposDebug);
-			$this -> debug ( "UPDATE `{$this->_tabela}` SET {$camposDebug} WHERE {$where}" );
-		}
-
-
-		try
-		{
-			//PREPARA OS DADOS PARA INSERT USANDO PREPARED STATEMENTS
-			$ps = $this -> db -> prepare("UPDATE `{$this->_tabela}` SET {$campos} WHERE {$where}");
-
-			//PASSA OS VALORES CORRETOS BASEADOS NO PARAMETROS DA STRING
-			foreach ($dadosBD as $key => $value){
-			 	$ps->bindValue(":$key", $value);
-			}
-
-			//EXECUTA A QUERY
-			$executa = $ps->execute();
-
-		} catch (PDOexception $e) {
-			echo $e->getMessage();
-		}
-
-		return $ps->rowCount();
-	}
-
-
-	public function delete( $where )
-	{
-		try
-		{
-			$ps = $this -> db -> prepare("DELETE FROM `{$this->_tabela}` WHERE {$where} ");
-			$executa = $ps -> execute();
-
-		} catch (PDOexception $e) {
-			echo $e->getMessage();
-		}
-
-		return $ps->rowCount();
-	}
-
-
-	private function getTableField()
+    protected static function getConnectionPDO() : PDO
     {
+        if(!isset(self::$connectionPDO)){
 
-        $fields = array();
-        $result = $this->db->query("DESCRIBE `{$this->_tabela}`")->fetchAll();
+            if( in_array( $_SERVER['REMOTE_ADDR'], array( '127.0.0.1', '::1' ) ) ) {
+                $databaseConfig = DATABASE_CONFIG::$staging;
+            } else {
+                $databaseConfig = DATABASE_CONFIG::$production;
+            }
 
-        foreach ($result as $r) {
-            array_push($fields, $r['Field']);
+            extract($databaseConfig);
+            self::$connectionPDO = new PDO("mysql:host=$host;dbname=$banco", "$login", "$senha", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'));
+
+            return self::$connectionPDO;
         }
+        return self::$connectionPDO;
+    }
 
-        return $fields;
+    protected static function getModelName() : string
+    {
+        return get_called_class();
+    }
 
+    protected static function getTableName() : ?string
+    {
+        if(static::$tableName != "")
+            return static::$tableName;
+        return null;
+    }
+
+    protected static function getIDName() : ?string
+    {
+        if(self::getTableName())
+            return "id_".self::getTableName();
+    }
+
+    protected static function getBindName($columnName) : string
+    {
+        return ":{$columnName}";
+    }
+
+    ///// QUERY METHODS /////
+
+    protected static function getQuerySetup($limit = null, $orderBy = null) : string
+    {
+        $orderBy = (!is_null($orderBy)) ? " ORDER BY {$orderBy} " : " ";
+        $limit = (!is_null($limit)) ? " LIMIT {$limit} " : " ";
+        return "{$orderBy} {$limit}";
     }
 
 
-    /////////////////////////////////////////////
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
+    ///// STATIC METHODS /////
 
-    public function consulta($sql, $debug = FALSE)
-	{
-		if($debug) $this -> debug($sql);
-		return $this -> db -> query($sql) -> fetchAll(PDO::FETCH_ASSOC);
-	}
+    public static function getAll($limit = null, $orderBy = null, $debug = null) : ?array
+    {
+        $tableName = self::getTableName();
+        $querySetup = self::getQuerySetup($limit, $orderBy);
+
+        $query = "SELECT * FROM {$tableName} {$querySetup}";
+
+        if($debug)
+            self::debug($query);
+
+        $sth = self::getConnectionPDO()->prepare($query);
+        $sth->execute();
+
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        if($result){
+            $models = array();
+            foreach ($result as $data){
+                $modelName = self::getModelName();
+                $models[] = new $modelName($data);
+            }
+            return $models;
+        }
+        return null;
+    }
+
+    public static function getBy($columnName, $value, $limit = null, $orderBy = null, $debug = null) : ?Object
+    {
+        $tableName = self::getTableName();
+        $bindName = self::getBindName($columnName);
+        $querySetup = self::getQuerySetup($limit, $orderBy);
+
+        $query = "SELECT * FROM {$tableName} ";
+        $query .= "WHERE {$columnName} = {$bindName} {$querySetup}";
+
+        if($debug)
+            self::debug($query);
+
+        $sth = self::getConnectionPDO()->prepare($query);
+        $sth->bindParam($bindName, $value);
+        $sth->execute();
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
+
+        if($result){
+            $modelName = self::getModelName();
+            return new $modelName($result);
+        }
+        return null;
+    }
+
+    public static function getAllBy($columnName, $value, $limit = null, $orderBy = null, $debug = null) : ?array
+    {
+        $tableName = self::getTableName();
+        $bindName = self::getBindName($columnName);
+        $querySetup = self::getQuerySetup($limit, $orderBy);
+
+        $query = "SELECT * FROM {$tableName} ";
+        $query .= "WHERE {$columnName} = {$bindName} {$querySetup}";
+
+        if($debug)
+            self::debug($query);
+
+        $sth = self::getConnectionPDO()->prepare($query);
+        $sth->bindParam($bindName, $value);
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        if($result){
+            $models = array();
+            foreach ($result as $data){
+                $modelName = self::getModelName();
+                $models[] = new $modelName($data);
+            }
+            return $models;
+        }
+        return null;
+    }
+
+    protected static function debug($query) : void
+    {
+        echo "<hr/><pre>$query</pre><hr/>";
+    }
+
+    ///// OBJECTS METHODS /////
+
+    private $schema = array();
+
+    public function __construct($newSchema, $data = null)
+    {
+
+        foreach ($newSchema as $columnName => $type) {
+            $this->schema[$columnName] = array("value" => null, "type" => $type);
+        }
+
+        if($data){
+            foreach ($data as $columnName => $value){
+                $this->schema[$columnName]["value"] = $value;
+            }
+        }
+    }
+
+    public function __set($name, $value)
+    {
+        if(array_key_exists($name, $this->schema))
+            $this->schema[$name]["value"] = $value;
+    }
+
+    public function __get($name)
+    {
+        if(array_key_exists($name, $this->schema))
+            return $this->schema[$name]["value"];
+    }
+
+    private function getInsertQuery() : string
+    {
+        $tableName = self::getTableName();
+        $idName = self::getIDName();
+        $idBindName = self::getBindName($idName);
+
+        foreach($this->schema as $columnName => $data){
+            if($columnName != $idName && !is_null($data["value"])){
+                $columnNames[] = $columnName;
+                $bindNames[] = self::getBindName($columnName);
+            }
+        }
+
+        $columns = implode(', ', $columnNames);
+        $binds = implode(', ', $bindNames);
+
+        $query = "INSERT INTO {$tableName} ";
+        $query .= "({$columns}) VALUES ({$binds})";
+
+        return $query;
+    }
+
+    private function getUpdateQuery() : string
+    {
+        $tableName = self::getTableName();
+        $idName = self::getIDName();
+        $idBindName = self::getBindName($idName);
+
+        foreach($this->schema as $columnName => $data){
+            if($columnName != $idName && !is_null($data["value"])){
+                $bindName = self::getBindName($columnName);
+                $filledColumns[] = "{$columnName} = {$bindName}";
+            }
+        }
+
+        $set = implode(', ', $filledColumns);
+
+        $query = "UPDATE {$tableName} ";
+        $query .= "SET {$set} ";
+        $query .= "WHERE {$idName} = {$idBindName}";
+
+        return $query;
+    }
+
+    public function save($debug = null) : bool
+    {
+        $idName = self::getIDName();
+
+        if(!is_null($this->schema[$idName]["value"])){
+            $query = self::getUpdateQuery();
+        }else{
+            $query = self::getInsertQuery();
+        }
+
+        if($debug)
+            self::debug($query);
+
+        try {
+            $sth = self::getConnectionPDO()->prepare($query);
+
+            foreach ($this->schema as $columnName => $data) {
+                if(!is_null($data["value"])){
+                    $sth->bindValue(self::getBindName($columnName) , $data["value"], $data["type"]);
+                }
+            }
+
+            $sth->execute();
+        }catch (PDOException $e){
+            echo $e->getMessage();
+            return false;
+        }
+        return true;
+    }
 
 
-	public function consultaLinha ( $sql , $debug = FALSE )
-	{
-		if($debug) $this -> debug($sql);
+    public function delete($debug = null) : bool
+    {
+        $idName = self::getIDName();
 
-		$query = $this -> db -> prepare($sql);
-		$query -> execute();
+        if(!is_null($this->schema[$idName]["value"])){
+            $tableName = self::getTableName();
+            $bindName = self::getBindName($idName);
 
-		return $query -> fetch(PDO::FETCH_ASSOC);
-	}
+            $query = "DELETE FROM {$tableName} WHERE {$idName} = {$bindName}";
 
-	public function consultaValor ( $sql , $debug = FALSE )
-	{
-		// Consultando
-		$resultado = $this -> consultaLinha ( $sql , $debug );
-
-		// Se retornou um Array
-		if ( is_array ( $resultado ) )
-		{
-			// Retornando a primeira coluna
-			return array_shift ( $resultado );
-		}
-		else
-		{
-			// Retornando falso
-			return FALSE;
-		}
-	}
-
-
-	public function populateFK()
-	{
-		foreach ($this -> fk as $key => $value)
-		{
-			$order = (isset($this -> orderby[$key])) ? "ORDER BY " . $this -> orderby[$key] : "";
-			$dados[$key] = $this -> consulta("SELECT * FROM `{$key}` {$order}");
-		}
-
-		return $dados;
-	}
-
-
-	private function debug ( $sql )
-	{
-		echo "<hr/><pre>$sql</pre><hr/>";
-	}
+            try {
+                $sth = self::getConnectionPDO()->prepare($query);
+                $sth->bindParam($bindName, $this->schema[$idName]["value"]);
+                $sth->execute();
+            }catch (PDOException $e){
+                echo $e->getMessage();
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
 }
 
 

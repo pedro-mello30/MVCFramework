@@ -49,18 +49,18 @@ class Controller
 
     public function init(){
 
-        //AUTENTICAÇÃO
-        $this -> _auth = new AuthHelper();
-
-        if($this->_redir->getCurrentController() != "home"
-            && $this->_redir->getCurrentAction() != "login")
-        {
-            if(!$this -> _auth -> verificaLogin())
-            {
-                $this -> _redir -> goToControllerAction('home' ,'login');
-            }
-        }
-
+//        //AUTENTICAÇÃO
+//        $this -> _auth = new AuthHelper();
+//
+//        if($this->_redir->getCurrentController() != "home"
+//            && $this->_redir->getCurrentAction() != "login")
+//        {
+//            if(!$this -> _auth -> verificaLogin())
+//            {
+//                $this -> _redir -> goToControllerAction('home' ,'login');
+//            }
+//        }
+//
 
 
 
