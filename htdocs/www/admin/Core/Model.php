@@ -94,15 +94,14 @@ abstract class Model
 
     ///// STATIC METHODS /////
 
-    public static function getAll($limit = null, $orderBy = null, $debug = null) : ?array
+    public static function getAll($limit = null, $orderBy = null, $debug = false) : ?array
     {
         $tableName = self::getTableName();
         $querySetup = self::getQuerySetup($limit, $orderBy);
 
         $query = "SELECT * FROM {$tableName} {$querySetup}";
 
-        if($debug)
-            self::debug($query);
+        if($debug) self::debug($query);
 
         $sth = self::getConnectionPDO()->prepare($query);
         $sth->execute();
@@ -120,7 +119,7 @@ abstract class Model
         return null;
     }
 
-    public static function getBy($columnName, $value, $limit = null, $orderBy = null, $debug = null) : ?Object
+    public static function getBy($columnName, $value, $limit = null, $orderBy = null, $debug = false) : ?Object
     {
         $tableName = self::getTableName();
         $bindName = self::getBindName($columnName);
@@ -129,8 +128,7 @@ abstract class Model
         $query = "SELECT * FROM {$tableName} ";
         $query .= "WHERE {$columnName} = {$bindName} {$querySetup}";
 
-        if($debug)
-            self::debug($query);
+        if($debug) self::debug($query);
 
         $sth = self::getConnectionPDO()->prepare($query);
         $sth->bindParam($bindName, $value);
@@ -144,7 +142,7 @@ abstract class Model
         return null;
     }
 
-    public static function getAllBy($columnName, $value, $limit = null, $orderBy = null, $debug = null) : ?array
+    public static function getAllBy($columnName, $value, $limit = null, $orderBy = null, $debug = false) : ?array
     {
         $tableName = self::getTableName();
         $bindName = self::getBindName($columnName);
@@ -153,8 +151,7 @@ abstract class Model
         $query = "SELECT * FROM {$tableName} ";
         $query .= "WHERE {$columnName} = {$bindName} {$querySetup}";
 
-        if($debug)
-            self::debug($query);
+        if($debug) self::debug($query);
 
         $sth = self::getConnectionPDO()->prepare($query);
         $sth->bindParam($bindName, $value);
@@ -170,6 +167,13 @@ abstract class Model
             return $models;
         }
         return null;
+    }
+
+    public static function consult($query, $debug = false) : ?array
+    {
+        if($debug) self::debug($query);
+
+        return self::getConnectionPDO()->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     protected static function debug($query) : void
@@ -251,7 +255,7 @@ abstract class Model
         return $query;
     }
 
-    public function save($debug = null) : bool
+    public function save($debug = false) : bool
     {
         $idName = self::getIDName();
 
@@ -261,8 +265,7 @@ abstract class Model
             $query = self::getInsertQuery();
         }
 
-        if($debug)
-            self::debug($query);
+        if($debug) self::debug($query);
 
         try {
             $sth = self::getConnectionPDO()->prepare($query);
@@ -282,7 +285,7 @@ abstract class Model
     }
 
 
-    public function delete($debug = null) : bool
+    public function delete($debug = false) : bool
     {
         $idName = self::getIDName();
 
@@ -291,6 +294,8 @@ abstract class Model
             $bindName = self::getBindName($idName);
 
             $query = "DELETE FROM {$tableName} WHERE {$idName} = {$bindName}";
+
+            if($debug) self::debug($query);
 
             try {
                 $sth = self::getConnectionPDO()->prepare($query);
