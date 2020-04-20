@@ -121,4 +121,13 @@ class home extends Controller
         echo "testeModel";
     }
 
+
+    public function testeAuth(){
+	    echo "testeAuth";
+
+	    AuthHelperA::signIn("abc", "password");
+
+	    print_r($_SESSION);
+    }
+
 }

@@ -173,7 +173,18 @@ abstract class Model
     {
         if($debug) self::debug($query);
 
-        return self::getConnectionPDO()->query($query)->fetchAll(PDO::FETCH_ASSOC);
+        $sth = self::getConnectionPDO()->prepare($query);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function consultLine($query, $debug = false) : ?array
+    {
+        if($debug) self::debug($query);
+
+        $sth = self::getConnectionPDO()->prepare($query);
+        $sth->execute();
+        return $sth->fetch(PDO::FETCH_ASSOC);
     }
 
     protected static function debug($query) : void
