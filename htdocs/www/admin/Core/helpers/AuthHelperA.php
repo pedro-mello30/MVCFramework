@@ -82,14 +82,58 @@ class AuthHelperA
         return $sth->fetch(PDO::FETCH_ASSOC);
     }
 
-    private static function encryptPassword($password) : string
+    private function buildInsertQuery($data) : string
     {
-        return hash('sha512', $password);
+        $tableName = self::$tableName;
+
+        foreach($data as $columnName => $value){
+            if(!is_null($value)){
+                $columnNames[] = $columnName;
+                $bindNames[] = self::getBindName($columnName);
+            }
+        }
+
+        $columns = implode(', ', $columnNames);
+        $binds = implode(', ', $bindNames);
+
+        $query = "INSERT INTO {$tableName} ";
+        $query .= "({$columns}) VALUES ({$binds})";
+
+        return $query;
+    }
+
+    private function insertIntoDatabase($data) : bool
+    {
+
+        $sth = self::getConnectionPDO()->prepare(self::buildInsertQuery($data));
+
+        try{
+            foreach ($data as $columnName => $data) {
+                if(!is_null($data)){
+                    $sth->bindValue(self::getBindName($columnName) , $data);
+                }
+            }
+            $sth->execute();
+        }catch (PDOException $e){
+            echo $e->getMessage();
+            return false;
+        }
+        return true;
+    }
+
+    protected static function getBindName($columnName) : string
+    {
+        return ":{$columnName}";
     }
 
     private static function debug($query) : void
     {
         echo "<hr/><pre>$query</pre><hr/>";
+    }
+
+    private static function encryptPassword($password) : string
+    {
+        return hash('sha512', $password);
     }
 
     public static function signIn($user, $password)
@@ -108,13 +152,16 @@ class AuthHelperA
 
     public static function signUp($name, $email, $username, $password)
     {
-        $statusRegister = '1';
-        $queryColumns = "(".self::$nameColumn . ", " . self::$emailColumn . ", " . self::$usernameColumn;
-        $queryColumns .= self::$passwordColumn . ", " . self::$statusColumn . ", " . self::$dateColumn . ")";
 
-        $queryValues = "({$name}, {$email}, {$username},";
-        $queryValues .= self::encryptPassword($password) . ", {$statusRegister}, " . date("Y-n-d") . ")";
+        $newUser = array(
+            self::$nameColumn => $name,
+            self::$emailColumn => $email,
+            self::$usernameColumn => $username,
+            self::$passwordColumn => self::encryptPassword($password),
+            self::$statusColumn => '1',
+            self::$dateColumn => date("Y-n-d")
+        );
 
-
+        self::insertIntoDatabase($newUser);
     }
 }

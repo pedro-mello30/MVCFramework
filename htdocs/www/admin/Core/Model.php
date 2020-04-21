@@ -222,7 +222,7 @@ abstract class Model
             return $this->schema[$name]["value"];
     }
 
-    private function getInsertQuery() : string
+    private function buildInsertQuery() : string
     {
         $tableName = self::getTableName();
         $idName = self::getIDName();
@@ -244,7 +244,7 @@ abstract class Model
         return $query;
     }
 
-    private function getUpdateQuery() : string
+    private function buildUpdateQuery() : string
     {
         $tableName = self::getTableName();
         $idName = self::getIDName();
@@ -271,9 +271,9 @@ abstract class Model
         $idName = self::getIDName();
 
         if(!is_null($this->schema[$idName]["value"])){
-            $query = self::getUpdateQuery();
+            $query = self::buildUpdateQuery();
         }else{
-            $query = self::getInsertQuery();
+            $query = self::buildInsertQuery();
         }
 
         if($debug) self::debug($query);
