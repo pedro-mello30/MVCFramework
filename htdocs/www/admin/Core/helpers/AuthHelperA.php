@@ -40,7 +40,8 @@
 class AuthHelperA
 {
 
-    private static $tableName = 'admin_users';
+    private static $userTableName = 'admin_users';
+    private static $idColumn = 'id_admin_users';
     private static $nameColumn = 'name';
     private static $emailColumn = 'email';
     private static $usernameColumn = 'username';
@@ -52,6 +53,10 @@ class AuthHelperA
     private static $actionSuccess = '';
     private static $controllerError = '';
     private static $actionError = '';
+
+    private static $historyLoginTable = "history_login";
+
+    private static $sessionFieldLoggedIn = "loggedIn";
 
     private static $connectionPDO;
 
@@ -73,6 +78,15 @@ class AuthHelperA
         return self::$connectionPDO;
     }
 
+    public static function consult($query, $debug = false) : ?array
+    {
+        if($debug) self::debug($query);
+
+        $sth = self::getConnectionPDO()->prepare($query);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     private static function consultLine($query, $debug = false) : ?array
     {
         if($debug) self::debug($query);
@@ -82,9 +96,8 @@ class AuthHelperA
         return $sth->fetch(PDO::FETCH_ASSOC);
     }
 
-    private function buildInsertQuery($data) : string
+    private function buildInsertQuery($tableName, $data) : string
     {
-        $tableName = self::$tableName;
 
         foreach($data as $columnName => $value){
             if(!is_null($value)){
@@ -102,10 +115,10 @@ class AuthHelperA
         return $query;
     }
 
-    private function insertIntoDatabase($data) : bool
+    private function insertIntoDatabase($tableName, $data) : bool
     {
 
-        $sth = self::getConnectionPDO()->prepare(self::buildInsertQuery($data));
+        $sth = self::getConnectionPDO()->prepare(self::buildInsertQuery($tableName, $data));
 
         try{
             foreach ($data as $columnName => $data) {
@@ -139,14 +152,19 @@ class AuthHelperA
     public static function signIn($user, $password)
     {
 
-        $querySelect = self::$emailColumn . "," . self::$usernameColumn . "," . self::$statusColumn;
         $queryUser = self::$usernameColumn. " = '{$user}' OR ".self::$emailColumn." = '{$user}'";
         $queryPassword = self::$passwordColumn . " = '" . self::encryptPassword($password) . "'";
 
-        $query = "SELECT {$querySelect} FROM " . self::$tableName;
+        $query = "SELECT * FROM " . self::$userTableName;
         $query .= " WHERE ({$queryUser}) AND {$queryPassword}";
 
-        $_SESSION['user'] = self::consultLine($query, true);
+        $user = self::consultLine($query, false);
+        unset($user[self::$passwordColumn]);
+        $user[self::$sessionFieldLoggedIn] = true;
+
+        self::registerSignIn($user[self::$idColumn]);
+
+        $_SESSION['user'] = $user;
 
     }
 
@@ -162,12 +180,37 @@ class AuthHelperA
             self::$dateColumn => date("Y-n-d")
         );
 
-        self::insertIntoDatabase($newUser);
+        self::insertIntoDatabase(self::$userTableName, $newUser);
     }
 
-    public static function registerSignIn()
+    public static function isLoggedIn() : bool
     {
-        
+        return (isset($_SESSION["user"][self::$sessionFieldLoggedIn]) && $_SESSION["user"][self::$sessionFieldLoggedIn] == true) ? true : false;
+    }
+
+    private static function registerSignIn($idUser)
+    {
+        $newSignIn = array(
+            self::$idColumn => $idUser,
+            "date" => date("Y-n-d"),
+            "time" => date("H:i:s"),
+            "user_ip" => self::getUserIP(),
+            "user_os" => self::getUserOS(),
+            "user_browser" => self::getUserBrowser()
+        );
+
+        self::insertIntoDatabase(self::$historyLoginTable, $newSignIn);
+    }
+
+    public static function getLoginHistory() : ?array
+    {
+        if(!self::isLoggedIn())
+            return null;
+
+        $query = "SELECT * FROM " .self::$historyLoginTable;
+        $query .= " WHERE " . self::$idColumn . "=" . $_SESSION["user"][self::$idColumn];
+
+        return self::consult($query);
     }
 
     private static function getUserIP() : string
@@ -245,3 +288,7 @@ class AuthHelperA
         return $browser;
     }
 }
+
+
+
+
