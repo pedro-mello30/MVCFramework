@@ -4,7 +4,6 @@
     <list default="true" id="da1c0bf3-d8ac-49d8-8ef3-63a622ecc070" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/www/admin/Controllers/homeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/www/admin/Controllers/homeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/www/admin/Core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/www/admin/Core/Model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/www/admin/Core/helpers/AuthHelperA.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/www/admin/Core/helpers/AuthHelperA.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +54,8 @@
       <workItem from="1587146708762" duration="7872000" />
       <workItem from="1587393323697" duration="7342000" />
       <workItem from="1587482105997" duration="18000" />
-      <workItem from="1587490205729" duration="4761000" />
+      <workItem from="1587490205729" duration="4820000" />
+      <workItem from="1587513009955" duration="3061000" />
     </task>
     <servers />
   </component>

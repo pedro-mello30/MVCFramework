@@ -126,8 +126,10 @@ class home extends Controller
 	    echo "testeAuth";
 
 //	    AuthHelperA::signIn("abc", "password");
-        AuthHelperA::signUp("testeSignUp", "teste@a.com", "@123", "password");
-	    print_r($_SESSION);
+//        AuthHelperA::signUp("testeSignUp", "teste@a.com", "@123", "password");
+	    AuthHelperA::registerSignIn();
+
+        print_r($_SESSION);
     }
 
 }
