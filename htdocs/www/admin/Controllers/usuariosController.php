@@ -47,6 +47,7 @@
             $m = new Usuarios_Model();
             parent::setModelController();
 
+
 //            //VERIFICA ORDEM DE EXIBIÇÃO
 //            if(isset($this -> _model -> orderby[$this -> bd -> _tabela]))
 //                $this -> _orderby = $this -> _model -> orderby[$this -> _model -> _tabela];

@@ -123,16 +123,17 @@ class home extends Controller
 
 
     public function testeAuth(){
-	    echo "testeAuth";
+//	    echo "testeAuth";
 
-	    AuthHelperA::signIn("abc", "password");
+//	    AuthHelperA::signIn("abc", "password");
+//        AuthHelperA::signOut();
 //        AuthHelperA::signUp("testeSignUp", "teste@a.com", "@123", "password");
-//	    AuthHelperA::registerSignIn();
 
-        var_dump(AuthHelperA::isLoggedIn());
-        print_r($_SESSION);
+//        Teste para o init do controller
+//        AuthHelperA::setActionsExceptions(array("adicionar"));
+//        AuthHelperA::addActionExcept("editar");
+//        AuthHelperA::checkLogin();
 
-        print_r(AuthHelperA::getLoginHistory());
     }
 
 }

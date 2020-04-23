@@ -156,12 +156,12 @@ class Controller
 
         $return = null;
 
-        if($this->_modelController->read())
+        if($this->_modelController->getAll())
         {
             $key = $this -> _redir -> getCurrentController();
 
             $order = (isset($this->_modelController -> orderby[$key])) ? "ORDER BY " . $this->_modelController -> orderby[$key] : "";
-            $return[$key] = $this->_modelController->consulta("SELECT * FROM `{$this->_modelController->_tabela}` {$order}");
+            $return[$key] = $this->_modelController->consult("SELECT * FROM `{$this->_modelController->_tabela}` {$order}");
 
         }
 

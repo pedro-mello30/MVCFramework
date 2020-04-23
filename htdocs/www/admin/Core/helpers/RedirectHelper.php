@@ -10,9 +10,8 @@ class RedirectHelper
 
     public static function goTo($data)
 	{	
-//		 echo  $data;
-//		 echo URL;
-		header("Location: " . URL ."admin/". $data);
+//		 echo  "Location: " . URL . $data;
+		header("Location: " . URL . $data);
 		exit();
 	}
 
@@ -46,6 +45,7 @@ class RedirectHelper
 
     public static function goToControllerAction($controller, $action, $parameters = null)
 	{
+
 		if(is_null($parameters)){
             self::goTo($controller . "/" . $action);
         }

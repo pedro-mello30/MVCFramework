@@ -49,10 +49,13 @@ class AuthHelperA
     private static $tokenColumn = 'token';
     private static $dateColumn = 'date_initiated';
     private static $statusColumn = 'status';
-    private static $controllerSuccess = '';
-    private static $actionSuccess = '';
-    private static $controllerError = '';
-    private static $actionError = '';
+
+    private static $controllerSuccess = 'usuarios';
+    private static $actionSuccess = 'listar';
+    private static $controllerError = 'contato';
+    private static $actionError = 'adicionar';
+
+    private static $actionsExceptions = array();
 
     private static $historyLoginTable = "history_login";
 
@@ -78,13 +81,14 @@ class AuthHelperA
         return self::$connectionPDO;
     }
 
-    public static function consult($query, $debug = false) : ?array
+    private static function consult($query, $debug = false) : ?array
     {
         if($debug) self::debug($query);
 
         $sth = self::getConnectionPDO()->prepare($query);
         $sth->execute();
-        return $sth->fetchAll(PDO::FETCH_ASSOC);
+        $return =  $sth->fetchAll(PDO::FETCH_ASSOC);
+        return ($return) ? $return : null;
     }
 
     private static function consultLine($query, $debug = false) : ?array
@@ -93,7 +97,8 @@ class AuthHelperA
 
         $sth = self::getConnectionPDO()->prepare($query);
         $sth->execute();
-        return $sth->fetch(PDO::FETCH_ASSOC);
+        $return = $sth->fetch(PDO::FETCH_ASSOC);
+        return ($return) ? $return : null;
     }
 
     private function buildInsertQuery($tableName, $data) : string
@@ -149,9 +154,18 @@ class AuthHelperA
         return hash('sha512', $password);
     }
 
-    public static function signIn($user, $password)
+    public static function setActionsExceptions($newActionsExceptions) : void
     {
+        self::$actionsExceptions = $newActionsExceptions;
+    }
 
+    public static function addActionExcept($newActionExcept) : void
+    {
+        self::$actionsExceptions[] = $newActionExcept;
+    }
+
+    public static function signIn($user, $password) : void
+    {
         $queryUser = self::$usernameColumn. " = '{$user}' OR ".self::$emailColumn." = '{$user}'";
         $queryPassword = self::$passwordColumn . " = '" . self::encryptPassword($password) . "'";
 
@@ -159,13 +173,18 @@ class AuthHelperA
         $query .= " WHERE ({$queryUser}) AND {$queryPassword}";
 
         $user = self::consultLine($query, false);
-        unset($user[self::$passwordColumn]);
-        $user[self::$sessionFieldLoggedIn] = true;
 
-        self::registerSignIn($user[self::$idColumn]);
+        if($user){
+            unset($user[self::$passwordColumn]);
+            $user[self::$sessionFieldLoggedIn] = true;
 
-        $_SESSION['user'] = $user;
+            self::registerSignIn($user[self::$idColumn]);
 
+            $_SESSION['user'] = $user;
+            RedirectHelper::goToControllerAction(self::$controllerSuccess, self::$actionSuccess);
+        }
+
+        RedirectHelper::goToControllerAction(self::$controllerError, self::$actionError);
     }
 
     public static function signUp($name, $email, $username, $password)
@@ -183,12 +202,27 @@ class AuthHelperA
         self::insertIntoDatabase(self::$userTableName, $newUser);
     }
 
+    public static function signOut() : void
+    {
+        if(self::isLoggedIn()){
+            session_destroy();
+            session_regenerate_id();
+        }
+    }
+
+    public static function checkLogin() : void
+    {
+        if(!self::isLoggedIn())
+            if(!in_array(RedirectHelper::getCurrentAction(), self::$actionsExceptions))
+                RedirectHelper::goToControllerAction(self::$controllerError, self::$actionError);
+    }
+
     public static function isLoggedIn() : bool
     {
         return (isset($_SESSION["user"][self::$sessionFieldLoggedIn]) && $_SESSION["user"][self::$sessionFieldLoggedIn] == true) ? true : false;
     }
 
-    private static function registerSignIn($idUser)
+    private static function registerSignIn($idUser) : void
     {
         $newSignIn = array(
             self::$idColumn => $idUser,
