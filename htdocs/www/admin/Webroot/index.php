@@ -1,7 +1,7 @@
 <?php
 
 
-   print_r($_SERVER);
+//   print_r($_SERVER);
 	error_reporting(1);
 	session_start();
 

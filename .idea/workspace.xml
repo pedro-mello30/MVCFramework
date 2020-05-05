@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da1c0bf3-d8ac-49d8-8ef3-63a622ecc070" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/htdocs/www/admin/Core/helpers/EmailHelperA.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/www/admin/Controllers/homeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/www/admin/Controllers/homeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/www/admin/Controllers/usuariosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/www/admin/Controllers/usuariosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/www/admin/Core/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/www/admin/Core/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/www/admin/Core/helpers/AuthHelperA.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/www/admin/Core/helpers/AuthHelperA.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/www/admin/Core/helpers/RedirectHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/www/admin/Core/helpers/RedirectHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/www/admin/Core/helpers/Email/language/phpmailer.lang-br.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/www/admin/Core/helpers/Email/language/phpmailer.lang-br.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/www/admin/Webroot/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/www/admin/Webroot/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +30,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -60,7 +59,11 @@
       <workItem from="1587490205729" duration="4820000" />
       <workItem from="1587513009955" duration="3061000" />
       <workItem from="1587572446884" duration="8304000" />
-      <workItem from="1587608707777" duration="4412000" />
+      <workItem from="1587608707777" duration="4890000" />
+      <workItem from="1587651185240" duration="3003000" />
+      <workItem from="1587666419165" duration="1820000" />
+      <workItem from="1588276541862" duration="1453000" />
+      <workItem from="1588619436417" duration="8499000" />
     </task>
     <servers />
   </component>
@@ -68,19 +71,33 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="604" y="1352" width="761" height="561" key="NewPhpClassDialog" timestamp="1587162491297">
-      <screen x="59" y="0" width="1861" height="2160" />
+    <state x="447" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588277403795">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="447" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/59.27.1861.1053@59.27.1861.1053" timestamp="1588277403795" />
+    <state x="830" y="441" width="307" height="231" key="DockerComposeFileDialog" timestamp="1588277395423">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="830" y="441" width="307" height="231" key="DockerComposeFileDialog/59.27.1861.1053@59.27.1861.1053" timestamp="1588277395423" />
+    <state x="604" y="568" width="761" height="512" key="NewPhpClassDialog" timestamp="1587655609457">
+      <screen x="59" y="27" width="1861" height="1053" />
     </state>
     <state x="604" y="1352" width="761" height="561" key="NewPhpClassDialog/59.0.1861.2160@59.0.1861.2160" timestamp="1587162491297" />
-    <state x="478" y="1267" key="SettingsEditor" timestamp="1587162733191">
-      <screen x="59" y="0" width="1861" height="2160" />
+    <state x="604" y="568" width="761" height="512" key="NewPhpClassDialog/59.27.1861.1053@59.27.1861.1053" timestamp="1587655609457" />
+    <state x="478" y="343" width="1022" height="737" key="SettingsEditor" timestamp="1588277244797">
+      <screen x="59" y="27" width="1861" height="1053" />
     </state>
     <state x="478" y="1267" key="SettingsEditor/59.0.1861.2160@59.0.1861.2160" timestamp="1587162733191" />
+    <state x="478" y="343" width="1022" height="737" key="SettingsEditor/59.27.1861.1053@59.27.1861.1053" timestamp="1588277244797" />
     <state x="616" y="1447" key="com.intellij.ide.util.TipDialog" timestamp="1586445576918">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
     <state x="616" y="1447" key="com.intellij.ide.util.TipDialog/0.1080.1920.1080/59.0.1861.1080@0.1080.1920.1080" timestamp="1586445576918" />
     <state x="656" y="367" key="com.intellij.ide.util.TipDialog/0.1080.1920.1080/59.0.1861.1080@59.0.1861.1080" timestamp="1586376474624" />
+    <state x="680" y="162" width="723" height="783" key="find.popup" timestamp="1588620801993">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="680" y="162" width="723" height="783" key="find.popup/59.27.1861.1053@59.27.1861.1053" timestamp="1588620801993" />
     <state x="652" y="1337" width="672" height="678" key="search.everywhere.popup" timestamp="1586135161078">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
