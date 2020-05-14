@@ -1,6 +1,10 @@
 <IfModule mod_rewrite.c>
-   RewriteEngine on
-   RewriteCond %{REQUEST_URI} ^$ [NC]
+
+#   RewriteCond %{REQUEST_URI} ^ [NC]
+#   RewriteRule    ^$ admin/Webroot/    [L]
+#   RewriteRule    (.*) admin/Webroot/$1 [L]
+
+    RewriteEngine on
    RewriteRule    ^$ admin/Webroot/    [L]
    RewriteRule    (.*) admin/Webroot/$1 [L]
    

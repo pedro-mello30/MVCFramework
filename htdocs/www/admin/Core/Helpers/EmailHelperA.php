@@ -58,7 +58,7 @@ class EmailHelperA
     public function __construct()
     {
 
-        $this->mailer = $this->getInstanceMailer();
+        $this->mailer = new PHPMailer();
         $this->mailer->SetLanguage("br", HELPERS . "/Email/language/");
 
         $this->mailer->SMTPDebug = 3;
@@ -150,5 +150,20 @@ class EmailHelperA
         return $this;
     }
 
+    public function setMessageFromHtmlFile($file, $vars = array())
+    {
+        $path = HELPERS."Email/Messages/";
+
+        if(count($vars) > 0)
+            extract($vars);
+
+        ob_start();
+            include($path.$file);
+            $content  =  ob_get_contents();
+        ob_end_clean();
+        $this->setMessage($content);
+
+        return $this;
+    }
 
 }

@@ -54,7 +54,7 @@
 	define( 'VIEWS', '../../admin/Views/' );
 	define( 'LAYOUT', '../../admin/Views/Layouts/' );
 	define( 'MODELS', '../../admin/Models/' );
-	define( 'HELPERS', '../../admin/Core/helpers/' );
+	define( 'HELPERS', '../../admin/Core/Helpers/' );
 	define( 'CORE', '../../admin/Core/' );
 	define( 'CONFIG', '../../admin/Config/' );
 
@@ -65,8 +65,8 @@
 			require_once( MODELS . $file . ".php");
 		else if( file_exists(HELPERS . $file . ".php"))
 			require_once( HELPERS . $file . ".php");
-		else if( file_exists(HELPERS . "/Email/" . $file . ".php"))
-			require_once( HELPERS . "/Email/" . $file . ".php");
+		else if( file_exists(HELPERS . "/Email/Lib/" . $file . ".php"))
+			require_once( HELPERS . "/Email/Lib/" . $file . ".php");
 		else if( file_exists(CORE . $file . ".php"))
 			require_once( CORE . $file . ".php");
 		else if( file_exists(CONTROLLERS . $file . "Controller.php"))

@@ -63,6 +63,12 @@ class AuthHelperA
 
     private static $connectionPDO;
 
+    const STATUS = array(
+        "normal" => 0,
+        "peding_review" => 1,
+        "suspended" => 2
+    );
+
     private static function getConnectionPDO() : PDO
     {
         if(!isset(self::$connectionPDO)){
@@ -154,6 +160,11 @@ class AuthHelperA
         return hash('sha512', $password);
     }
 
+    private static function generateToken($email) : string
+    {
+        return md5($email . time());
+    }
+
     public static function setActionsExceptions($newActionsExceptions) : void
     {
         self::$actionsExceptions = $newActionsExceptions;
@@ -195,11 +206,13 @@ class AuthHelperA
             self::$emailColumn => $email,
             self::$usernameColumn => $username,
             self::$passwordColumn => self::encryptPassword($password),
-            self::$statusColumn => '1',
+            self::$tokenColumn => self::generateToken($email),
+            self::$statusColumn => self::STATUS['peding_review'] ,
             self::$dateColumn => date("Y-n-d")
         );
 
         self::insertIntoDatabase(self::$userTableName, $newUser);
+        self::sendConfirmEmail($newUser);
     }
 
     public static function signOut() : void
@@ -208,6 +221,21 @@ class AuthHelperA
             session_destroy();
             session_regenerate_id();
         }
+    }
+
+    private static function sendConfirmEmail($user) : void
+    {
+        $variables = array(
+            "name" => $user[self::$nameColumn],
+            "url" => "http://localhost:8001/confirmEmail/" . $user[self::$tokenColumn]
+        );
+
+        EmailHelperA::make()
+            ->addAddress($user[self::$emailColumn], $user[self::$nameColumn])
+            ->setSubject("Confirm email")
+            ->setAltMessage("Esta é uma mensagem da 70e7.")
+            ->setMessageFromHtmlFile("ConfirmEmail.phtml", $variables)
+            ->send();
     }
 
     public static function checkLogin() : void

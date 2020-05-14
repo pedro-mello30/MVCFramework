@@ -127,7 +127,7 @@ class home extends Controller
 
 //	    AuthHelperA::signIn("abc", "password");
 //        AuthHelperA::signOut();
-//        AuthHelperA::signUp("testeSignUp", "teste@a.com", "@123", "password");
+        AuthHelperA::signUp("testeSignUp", "pedro_mello@icloud.com", "@123", "password");
 
 //        Teste para o init do controller
 //        AuthHelperA::setActionsExceptions(array("adicionar"));
@@ -183,7 +183,9 @@ class home extends Controller
 
         EmailHelperA::make()
             ->addAddress("pedro_mello@icloud.com", "Pedro")
-            ->setMessage("<i>teste<i>")
+            ->setSubject("Contato")
+            ->setAltMessage("Esta é uma mensagem da 70e7.")
+            ->setMessageFromHtmlFile("ContactMessage.phtml", array("name" => "Test"))
             ->send();
     }
 
