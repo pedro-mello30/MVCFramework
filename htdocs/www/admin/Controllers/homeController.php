@@ -136,6 +136,11 @@ class home extends Controller
 
     }
 
+    public function confirmEmail($params = null){
+//	    echo params[0];
+	    AuthHelperA::confirmEmail($params[0]);
+    }
+
 
     public function testeEmail(){
 //        //PHPMailer Object

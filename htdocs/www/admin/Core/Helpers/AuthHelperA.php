@@ -126,6 +126,42 @@ class AuthHelperA
         return $query;
     }
 
+    private function updateDatabase($tableName, $data) : bool
+    {
+        $idName = self::$idColumn;
+        $idBindName = self::getBindName($idName);
+
+        foreach($data as $columnName => $value){
+            if($columnName != $idName && !is_null($value)){
+                $bindName = self::getBindName($columnName);
+                $filledColumns[] = "{$columnName} = {$bindName}";
+            }
+        }
+
+        $set = implode(', ', $filledColumns);
+
+        $query = "UPDATE {$tableName} ";
+        $query .= "SET {$set} ";
+        $query .= "WHERE {$idName} = {$idBindName}";
+
+        print_r($query);
+
+        $sth = self::getConnectionPDO()->prepare($query);
+
+        try{
+            foreach ($data as $columnName => $data) {
+                if(!is_null($data)){
+                    $sth->bindValue(self::getBindName($columnName) , $data);
+                }
+            }
+            $sth->execute();
+        }catch (PDOException $e){
+            echo $e->getMessage();
+            return false;
+        }
+        return true;
+    }
+
     private function insertIntoDatabase($tableName, $data) : bool
     {
 
@@ -223,11 +259,26 @@ class AuthHelperA
         }
     }
 
+    public static function confirmEmail($token) : bool
+    {
+        $consultQuery = "SELECT ".self::$idColumn." FROM ".self::$userTableName." WHERE ".self::$tokenColumn."='{$token}'";
+        $user = self::consultLine($consultQuery, true);
+        if($user){
+            $data = array(
+                self::$idColumn => $user[self::$idColumn],
+                self::$tokenColumn => "",
+                self::$statusColumn => self::STATUS["normal"]
+            );
+            return self::updateDatabase(self::$userTableName, $data);
+        }
+        return false;
+    }
+
     private static function sendConfirmEmail($user) : void
     {
         $variables = array(
             "name" => $user[self::$nameColumn],
-            "url" => "http://localhost:8001/confirmEmail/" . $user[self::$tokenColumn]
+            "url" => "http://localhost:8001/home/confirmEmail/" . $user[self::$tokenColumn]
         );
 
         EmailHelperA::make()
