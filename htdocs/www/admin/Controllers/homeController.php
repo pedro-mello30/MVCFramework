@@ -125,68 +125,35 @@ class home extends Controller
     public function testeAuth(){
 //	    echo "testeAuth";
 
-//	    AuthHelperA::signIn("abc", "password");
-//        AuthHelperA::signOut();
-        AuthHelperA::signUp("testeSignUp", "pedro_mello@icloud.com", "@123", "password");
+//	    AuthHelper::signIn("abc", "password");
+//        AuthHelper::signOut();
+        AuthHelper::signUp("testeSignUp", "pedro_mello@icloud.com", "@123", "password");
 
 //        Teste para o init do controller
-//        AuthHelperA::setActionsExceptions(array("adicionar"));
-//        AuthHelperA::addActionExcept("editar");
-//        AuthHelperA::checkLogin();
+//        AuthHelper::setActionsExceptions(array("adicionar"));
+//        AuthHelper::addActionExcept("editar");
+//        AuthHelper::checkLogin();
 
     }
 
     public function confirmEmail($params = null){
 //	    echo params[0];
-	    AuthHelperA::confirmEmail($params[0]);
+	    AuthHelper::confirmEmail($params[0]);
     }
 
+    public function testForgotPassword()
+    {
+	    AuthHelper::fogotPassword("pedro_mello@icloud.com");
+    }
+
+    public function resetPassword($params = null)
+    {
+        AuthHelper::changePasswordWithToken($params[0], "123");
+    }
 
     public function testeEmail(){
-//        //PHPMailer Object
-//        $mail = new PHPMailer;
-//        $mail-> SetLanguage("br", HELPERS . "/Email/language/");
-//
-//
-////Enable SMTP debugging.
-//        $mail->SMTPDebug = 3;
-////Set PHPMailer to use SMTP.
-//        $mail->isSMTP();
-////Set SMTP host name
-//        $mail->Host = "mail.70e7.com";
-////Set this to true if SMTP host requires authentication to send email
-//        $mail->SMTPAuth = true;
-////Provide username and password
-//        $mail->Username = "no-reply@70e7.com";
-//        $mail->Password = "A123456789b";
-////If SMTP requires TLS encryption then set it
-////$mail->SMTPSecure = "tls";
-////Set TCP port to connect to
-//        $mail->Port = 587;
-//
-//        $mail->From = "no-reply@70e7.com";
-//        $mail->FromName = "Full Name";
-//
-//
-//        $mail->addAddress("pedro_mello@icloud.com", "Recepient Name");
-//
-//        $mail->isHTML(true);
-//
-//        $mail->Subject = "Subject Text";
-//        $mail->Body = "<i>Mail body in HTML</i>";
-//        $mail->AltBody = "This is the plain text version of the email content";
-//
-//        if(!$mail->send())
-//        {
-//            echo "Mailer Error: " . $mail->ErrorInfo;
-//        }
-//        else
-//        {
-//            echo "Message has been sent successfully";
-//        }
-//
 
-        EmailHelperA::make()
+        EmailHelper::make()
             ->addAddress("pedro_mello@icloud.com", "Pedro")
             ->setSubject("Contato")
             ->setAltMessage("Esta é uma mensagem da 70e7.")

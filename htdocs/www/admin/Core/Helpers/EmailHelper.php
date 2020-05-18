@@ -1,129 +1,169 @@
 <?php
 
-class EmailHelper extends PHPMailer
+/**
+ *
+ *
+ *                                              ........................
+ *                                           .....',;,,;;;;;,,''...........
+ *                                         ..'..........'',;;;;,'........''..
+ *                                        .'..................,,,,'.......';,.
+ *                                      .''..'''.','..''........',;,,'.....';;'.
+ *                                     .,,';;;;;,;;;;;;;;,''......';;'......,;;'.
+ *                                   .,;:;;;,''..'...''',,,,,,'.....;;,'.....;;'''.
+ *                                 .':;;,.'.....'.'''''......',,,...',;,.....,;,..'.
+ *                                .;:'''....'',;;;,'......     ..''..';;'....';,'...'.
+ *                               .','....'',;;;,'..              .....';,'...';,.'...'.
+ *                              .'.'..'.';:;,'....                  ..';,....';,'..'..'.
+ *                              '' .'.',:;,..''..                     .,'....,;''...'.'.
+ *                              .'..'';:;'..','.                      .''...,;,..'..',,.
+ *                              .'..,,c;...';;.                       .'...';,....'.':,.
+ *                               .'.,c;...',:,.                       ....';,'....',;:.
+ *                               .',;c,...':;...                      ..',,,......,:;,.
+ *                                .;c;....,:;..'.                    .',,,'.....,,:,,.
+ *                                .;c;....,:;..',.                 ..',''.....';;;'''.
+ *                                 ,c,....,:;...,;'...          ..........'',;;,,'.'.
+ *                                 .:;...'';:,...,;,..................',,,;,,,..'..'.
+ *                                  ';'...',::'..',;;,...'''',,,,,,,,,;,,,'''..'. ''
+ *                                  .'....'',::...'',;;,'......''..''......'..'...'.
+ *                                   ..'....';::'....',;;;,''................,,.'..
+ *                                     .....'',:c;'......',,;;,;;;,,,,,,;;;;;'...
+ *                                         ....';c:,..........',;;;,,;:;;,'..
+ *                                             ...';:;'...........''....
+ *                                                  .',,,,..........
+ *                                                      ........
+ *
+ * Copyright (c) 2020 Pedro Mello.
+ *
+ */
+
+class EmailHelper
 {
-	#PHPMail
-	private $_mail	  = "";
 
-	#Host
-	private $_host	  = "";
+    private $mailer = null;
 
-	#Email HTML
-	private $_html	  = true;
-
-	#nome que aparecerá no envio
-	private $_nome	  = "";
-
-	#email cadastrado para envio
-	private $_from	  = "";
-
-	#email que receberá o formulário
-	private $_to	  = "";
-
-	#usuario do email autenticado
-	private $_usuario = "";
-
-	#senha do email autenticado
-	private $_senha   = "";
-
-
-	#assunto do email
-	private $_assunto = "";
-
-
-
-	//GETTER AND SETTER
-	public function __set($atrib, $value){  $this->$atrib = $value; }
-	public function __get($atrib){ return $value; }
-
-
-
-	public function __construct()
-	{
-
-		#seta a linguagem
-		$this-> SetLanguage("br", HELPERS . "/Email/language/");
-	}
-
-
-	public function enviarAutenticado($corpo)
-	{
-
-
-		#enviar via SMTP
-		$this -> IsSMTP();
-
-		#servidor SMTP
-		$this -> Host = $this -> _host;
-
-		#habilita smtp autenticado
-		$this -> SMTPAuth = true;
-
-		#usuário deste servidor smtp. Aqui esta a solucao
-		$this -> Username = $this -> _usuario; // usuário
-		$this -> Password = $this -> _senha; // senha
-
-		#email utilizado para o envio, pode ser o mesmo de username
-		$this -> From = $this -> _from;
-		$this -> FromName = $this -> _nome;
-
-
-		$this -> AddReplyTo($this -> _from, $this -> _nome);
-
-		#Enderecos que devem receber a mensagem
-		$this -> AddAddress($this -> _to);
-
-
-		$this -> IsHTML($this -> _html);
-		$this -> Subject = $this -> _assunto;
-
-		#adicionando o html no corpo do email
-		$this -> Body = $corpo;
-
-		#enviando e retornando o status de envio
-		return $this -> Send();
-	}
-
-
-	public function enviar($corpo)
-	{
-
-		#enviar via SMTP
-		$this -> IsMail();
-
-		#email utilizado para o envio, pode ser o mesmo de username
-		$this -> From = $this -> _from;
-		$this -> FromName = $this -> _nome;
-
-		#Endereço de email de resposta
-		$this -> AddReplyTo($this -> _from, $this -> _nome);
-
-		#Enderecos que devem receber a mensagem
-		$this -> AddAddress($this -> _to);
-
-		#Html ou texto
-		$this -> IsHTML($this -> _html);
-//        print_r($imageName);
-
-		#assunto do email
-		$this -> Subject = $this -> _assunto;
-
-		#adicionando o html no corpo do email
-		$this -> Body = $corpo;
-
-		#enviando e retornando o status de envio
-		return $this -> Send();
-	}
-
-    /**
-     * [Mailcatcher description]
-     * Teste de envio via localhost
-     * Precisa ter o mailcatcher instalado na máquina
-     */
-    public function Mailcatcher()
+    public static function make() : ?object
     {
-        $this -> Mailer = "smtp";
-        $this -> Host = "localhost";
-        $this -> Port = "1025";
+        $instance = new Self();
+        return $instance;
     }
+
+    public function getInstanceMailer()
+    {
+        if(is_null($this->mailer)){
+            $this->mailer = new PHPMailer();
+            return $this->mailer;
+        }
+        return $this->mailer;
+    }
+    public function __construct()
+    {
+
+        $this->mailer = new PHPMailer();
+        $this->mailer->SetLanguage("br", HELPERS . "/Email/language/");
+
+        $this->mailer->SMTPDebug = 3;
+        $this->mailer->isSMTP();
+        $this->mailer->SMTPAuth = true;
+        $this->mailer->isHTML(true);
+
+        $this->setHost("mail.70e7.com");
+        $this->setUsername("no-reply@70e7.com");
+        $this->setPassword("A123456789b");
+        $this->setPort(587);
+
+        $this->setFrom("no-reply@70e7.com");
+        $this->setFromName("70e7");
+
+
+    }
+
+
+    public function send()
+    {
+        $this->mailer->send();
+        return $this;
+    }
+
+    public function setHost($host)
+    {
+        $this->mailer->Host = $host;
+        return $this;
+    }
+
+    public function setUsername($username)
+    {
+        $this->mailer->Username = $username;
+        return $this;
+    }
+
+    public function setPassword($password)
+    {
+        $this->mailer->Password = $password;
+        return $this;
+    }
+
+    public function setPort($port)
+    {
+        $this->mailer->Port = $port;
+        return $this;
+    }
+
+    public function setFrom($from)
+    {
+        $this->mailer->From = $from;
+        return $this;
+    }
+
+    public function setFromName($fromName)
+    {
+        $this->mailer->FromName = $fromName;
+        return $this;
+    }
+
+    public function addAddress($emailAddress, $recipientName)
+    {
+        $this->mailer->AddAddress($emailAddress, $recipientName);
+        return $this;
+    }
+
+    public function setSubject($subject)
+    {
+        $this->mailer->Subject = $subject;
+        return $this;
+    }
+
+    public function AddAttachment($attachment)
+    {
+        $this->mailer->AddAttachment($attachment);
+        return $this;
+    }
+
+    public function setMessage($message)
+    {
+        $this->mailer->Body = $message;
+        return $this;
+    }
+
+    public function setAltMessage($altMessage)
+    {
+        $this->mailer->AltBody = $altMessage;
+        return $this;
+    }
+
+    public function setMessageFromHtmlFile($file, $vars = array())
+    {
+        $path = HELPERS."Email/Messages/";
+
+        if(count($vars) > 0)
+            extract($vars);
+
+        ob_start();
+            include($path.$file);
+            $content  =  ob_get_contents();
+        ob_end_clean();
+        $this->setMessage($content);
+
+        return $this;
+    }
+
 }
