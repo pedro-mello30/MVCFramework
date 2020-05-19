@@ -67,6 +67,7 @@ class AuthHelper
         "suspended" => 2
     );
 
+    /// Database methods ///
     private static function getConnectionPDO() : PDO
     {
         if(!isset(self::$connectionPDO)){
@@ -187,24 +188,24 @@ class AuthHelper
         echo "<hr/><pre>$query</pre><hr/>";
     }
 
-    private static function encryptPassword($password) : string
+    ///  ///
+    public static function signUp($name, $email, $username, $password) : bool
     {
-        return hash('sha512', $password);
-    }
+        if(self::existEmail($email) || self::existUsername($username))
+            return false;
 
-    private static function generateToken($string) : string
-    {
-        return md5($string . time());
-    }
+        $newUser = array(
+            self::$nameColumn => $name,
+            self::$emailColumn => $email,
+            self::$usernameColumn => $username,
+            self::$passwordColumn => self::encryptPassword($password),
+            self::$tokenColumn => self::generateToken($email),
+            self::$statusColumn => self::STATUS['peding_review'] ,
+            self::$dateColumn => date("Y-n-d")
+        );
 
-    public static function setActionsExceptions($newActionsExceptions) : void
-    {
-        self::$actionsExceptions = $newActionsExceptions;
-    }
-
-    public static function addActionExcept($newActionExcept) : void
-    {
-        self::$actionsExceptions[] = $newActionExcept;
+        self::sendConfirmEmail($newUser);
+        return self::insertIntoDatabase(self::$userTableName, $newUser);
     }
 
     public static function signIn($user, $password) : void
@@ -228,25 +229,6 @@ class AuthHelper
         }
 
         RedirectHelper::goToControllerAction(self::$controllerError, self::$actionError);
-    }
-
-    public static function signUp($name, $email, $username, $password) : bool
-    {
-        if(self::existEmail($email) || self::existUsername($username))
-            return false;
-
-        $newUser = array(
-            self::$nameColumn => $name,
-            self::$emailColumn => $email,
-            self::$usernameColumn => $username,
-            self::$passwordColumn => self::encryptPassword($password),
-            self::$tokenColumn => self::generateToken($email),
-            self::$statusColumn => self::STATUS['peding_review'] ,
-            self::$dateColumn => date("Y-n-d")
-        );
-
-        self::sendConfirmEmail($newUser);
-        return self::insertIntoDatabase(self::$userTableName, $newUser);
     }
 
     public static function signOut() : void
@@ -339,12 +321,25 @@ class AuthHelper
         return false;
     }
 
+    ///  ///
+    public static function setActionsExceptions($newActionsExceptions) : void
+    {
+        self::$actionsExceptions = $newActionsExceptions;
+    }
+
+    public static function addActionExcept($newActionExcept) : void
+    {
+        self::$actionsExceptions[] = $newActionExcept;
+    }
+
     public static function checkLogin() : void
     {
         if(!self::isLoggedIn())
             if(!in_array(RedirectHelper::getCurrentAction(), self::$actionsExceptions))
                 RedirectHelper::goToControllerAction(self::$controllerError, self::$actionError);
     }
+
+    /// Utils methods ///
 
     public static function isLoggedIn() : bool
     {
@@ -364,6 +359,18 @@ class AuthHelper
         $user = self::consultLine($query);
         return ($user)? $user[self::$idColumn] : null;
     }
+
+    private static function generateToken($string) : string
+    {
+        return md5($string . time());
+    }
+
+    private static function encryptPassword($password) : string
+    {
+        return hash('sha512', $password);
+    }
+
+    /// History login methods ///
 
     private static function registerSignIn($idUser) : void
     {
