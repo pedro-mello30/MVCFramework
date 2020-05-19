@@ -24,7 +24,7 @@ class RedirectHelper
 	public static function getCurrentAction()
 	{
         global $core;
-		return $core->_route->getAction();
+		return $core->route->getAction();
 	}
 
     public static function getUrlParameters(){

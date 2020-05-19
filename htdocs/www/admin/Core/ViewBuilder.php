@@ -38,67 +38,53 @@
 class ViewBuilder
 {
     private $output;
-    private $_controller;
+    private $controller;
 
-    //construtor faz a carga do template
     function __construct($controller)
     {
-        $this->_controller = $controller;
-        $layoutFile =  LAYOUT . $this->_controller->getLayout().".phtml";
+        $this->controller = $controller;
+        $layoutFile =  LAYOUT . $this->controller->getLayout().".phtml";
 
-//        if(file_exists($layoutFile)){
-//            $this->output = $this->parseFile($layoutFile);
-//        }else{
-//            new ErrorHelper("layout");
-//        }
-//
-//        //// ALERTA AQUI KKKK
+
+         //// ALERT HERE KKKK
         (file_exists($layoutFile)) ? $this->output = $this->parseFile($layoutFile) : new ErrorHelper("layout");
     }
 
-
-    function buildLayout($tags = array()){
+    function buildLayout($tags = array())
+    {
         if(count($tags) > 0)
         {
             foreach($tags as $tag =>$data)
             {
-
                 $data  =  (file_exists($data)) ? $this->parseFile($data) : $data;
                 $this->output  =  str_replace('{'.$tag.'}',$data, $this->output);
             }
         }
     }
 
-    function buildView($file, $vars = array()){
+    function buildView($file, $vars = array())
+    {
         if(count($vars) > 0)
             extract($vars);
-        //Ativar o buffer de saída.
+
         ob_start();
-        include($file);
-        //O conteúdo deste buffer interno é copiado na variável $content
-        $content  =  ob_get_contents();
-        //descartar o conteúdo do buffer.
+            include($file);
+            $content  =  ob_get_contents();
         ob_end_clean();
+
         return $content;
-
-//        return (file_exists($viewFile)) ? $this->parseFile($viewFile) : $viewFile;
-
     }
 
-    //Enquanto o buffer de saída estiver ativo, não é enviada a saída do script
     function parseFile($file)
     {
-        //Ativar o buffer de saída.
         ob_start();
-        include($file);
-        //O conteúdo deste buffer interno é copiado na variável $content
-        $content  =  ob_get_contents();
-        //descartar o conteúdo do buffer.
+            include($file);
+            $content  =  ob_get_contents();
         ob_end_clean();
+
         return $content;
     }
 
-    //Exibe o tempalte
     function display()
     {
         return $this->output;

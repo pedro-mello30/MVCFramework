@@ -35,8 +35,8 @@
  *
  */
 
-class Router {
-
+class Router
+{
     private $request;
     private $explode;
     public  $controller;
@@ -56,45 +56,33 @@ class Router {
     private function setExplode()
     {
         // echo "setExplode\n";
-        //cria um array com os valores passados pela url entre oa barras "/"
         $this->explode = explode("/", $this->request->getUrl());
     }
-
 
     private function setController()
     {
         // echo "setController\n";
-        //Defino qual controller a ser usado
         $this-> controller = $this -> sanitizeString($this -> explode[0]);
     }
 
-
     private function setAction()
     {
-        //defino a action que será usada
         $newAction = (!isset($this->explode[1]) || $this->explode[1] == null || $this->explode[1] == 'index') ? 'index_action' : $this->explode[1];
 
         $this-> action = $this -> sanitizeString($newAction);
-
     }
-
 
     public function setParameters()
     {
         $this->parameters = $this->explode;
         unset($this->parameters[0], $this->parameters[1]);
 
-        //retira ultimo valor, se for vazio
         if(end($this->parameters ) == null)
             array_pop($this->parameters);
-
     }
-
 
     public function setGets()
     {
-
-
         $explodeGet = explode("?", $_SERVER['REQUEST_URI']);
 
         if(isset($explodeGet[1]))
@@ -109,26 +97,16 @@ class Router {
         }
     }
 
-
-    /**
-     * @return Controller
-     */
     public function getController()
     {
         return $this-> controller;
     }
 
-    /**
-     * @return Action
-     */
     public function getAction()
     {
         return $this-> action;
     }
 
-    /**
-     * @return mixed
-     */
     public function getParameters()
     {
         return $this-> parameters;
@@ -146,7 +124,6 @@ class Router {
         return implode("", $exp);
     }
 }
-
 
 
 ?>

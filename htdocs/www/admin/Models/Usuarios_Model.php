@@ -1,9 +1,7 @@
 <?php
 class Usuarios_Model extends Model
 {
-
     protected static $tableName = "admin_users";
-
 
     public function __construct($data = null)
     {
@@ -17,7 +15,6 @@ class Usuarios_Model extends Model
             "password" => PDO::PARAM_STR
         );
         parent::__construct($schema, $data);
-
     }
 
 }

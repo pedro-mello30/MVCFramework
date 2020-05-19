@@ -1,9 +1,7 @@
 <?php
 class Contato_Model extends Model
 {
-
     protected static $tableName = "contato";
-
 
     public function __construct($data = null)
     {
@@ -17,7 +15,5 @@ class Contato_Model extends Model
             "data" => PDO::PARAM_STR
         );
         parent::__construct($schema, $data);
-
     }
-
 }

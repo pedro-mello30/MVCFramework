@@ -38,23 +38,16 @@
 class home extends Controller
 {
 
-
 	public function init($params = null)
 	{
 		parent::init();
 	}
 
-	
-
-	//PAGINA INICIAL
 	public function index_action($params = null)
 	{
 
 		$this->view('index', $dados);
 	}
-
-
-
 
 	public function login($params = null)
 	{
@@ -62,24 +55,18 @@ class home extends Controller
 
 		if($_POST)
 		{
-			//DEFINE OS DADOS PARA O LOGIN
 			$this -> _auth -> _user  	 = $_POST['username'];
 			$this -> _auth -> _senha 	 = $_POST['password'];
 
-
-			//RETORNA FALSE PARA ERRO E TRUE PARA ACERTO
 			if(!$this -> _auth -> login())
 				$dados['msg'] = 'Login ou senha incorreta';
 			else
 				parent::getRedir()->goToAction('index');
 		}
 
-		$this->_layout = 'login';
+		$this->layout = 'login';
 		$this->view('login', $dados);
-
 	}
-
-
 
 	public function logout($params = null)
 	{
@@ -120,7 +107,6 @@ class home extends Controller
 
         echo "testeModel";
     }
-
 
     public function testeAuth(){
 //	    echo "testeAuth";

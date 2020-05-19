@@ -35,72 +35,62 @@
  *
  */
 
-    class Core {
+class Core
+{
+    public $route;
 
-        public $_route;
+    function __construct()
+    {
+        $this->route = new Router(new Request());
+    }
 
-        function __construct()
+    public function getRoute() : Router
+    {
+        return $this->route;
+    }
+
+    function start()
+    {
+        $controller = $this->route->getController();
+        $action = $this->route->getAction();
+        $params = $this->route->getParameters();
+        $controller_path = CONTROLLERS .  $controller . "Controller.php";
+
+        if ( !file_exists( $controller_path ) )
         {
-            $this->_route = new Router(new Request());
+            new ErrorHelper('controller');
         }
 
-        /**
-         * @return Router
-         */
-        public function getRoute(): Router
+        require_once( $controller_path );
+        $app = new $controller();
+
+        if (!method_exists($app, $action))
         {
-            return $this->_route;
+            new ErrorHelper('action');
         }
 
+        if(empty($params))
+        {
+            $app->init();
+            $app->$action();
+        }
+        else
+        {
+            $i = 0;
 
+            $valores = array();
 
-        function start(){
-
-            $controller = $this->_route->getController();
-            $action = $this->_route->getAction();
-            $params = $this->_route->getParameters();
-            $controller_path = CONTROLLERS .  $controller . "Controller.php";
-
-            if ( !file_exists( $controller_path ) )
+            foreach ($params as $p)
             {
-                new ErrorHelper('controller');
+                $valores[$i] = $p;
+                $i++;
             }
-
-            require_once( $controller_path );
-            $app = new $controller();
-
-
-
-            if (!method_exists($app, $action))
-            {
-                new ErrorHelper('action');
-            }
-
-
-            if(empty($params))
-            {
-                $app->init();
-                $app->$action();
-            }
-            else
-            {
-                $i = 0;
-
-                $valores = array();
-
-                foreach ($params as $p)
-                {
-                    $valores[$i] = $p;
-                    $i++;
-                }
-                $app->init($valores);
-                $app->$action($valores);
-
-            }
-
+            $app->init($valores);
+            $app->$action($valores);
 
         }
     }
+}
 
 
 

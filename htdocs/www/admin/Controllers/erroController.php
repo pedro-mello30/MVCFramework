@@ -2,7 +2,6 @@
 
 class Erro extends Controller
 {
-
 	public function index_action($params = null)
 	{
 		$this->view('404');
@@ -12,5 +11,4 @@ class Erro extends Controller
 	{
 		$this->view('404');
 	}
-
 }

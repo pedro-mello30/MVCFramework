@@ -36,10 +36,8 @@
  *
  */
 
-
 class AuthHelper
 {
-
     private static $userTableName = 'admin_users';
     private static $idColumn = 'id_admin_users';
     private static $nameColumn = 'name';

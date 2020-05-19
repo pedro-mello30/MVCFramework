@@ -38,7 +38,6 @@
 
 class EmailHelper
 {
-
     private $mailer = null;
 
     public static function make() : ?object
@@ -55,6 +54,7 @@ class EmailHelper
         }
         return $this->mailer;
     }
+
     public function __construct()
     {
 
@@ -76,7 +76,6 @@ class EmailHelper
 
 
     }
-
 
     public function send()
     {
@@ -165,5 +164,4 @@ class EmailHelper
 
         return $this;
     }
-
 }

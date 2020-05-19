@@ -5,12 +5,6 @@
 	error_reporting(1);
 	session_start();
 
-//	echo "\necho in Exit Webroot/index.php";
-//	exit();
-
-	/*
-	 * Setar hora do servidor
-	 */
 	date_default_timezone_set("Brazil/East");
 
     if (get_magic_quotes_gpc()) {
@@ -19,24 +13,14 @@
         array_walk_recursive($gpc, 'magicQuotes_awStripslashes');
     }
 
-	/*
-	 * Define DS como o separador de diretorios (/) para usar em outros locais
-	 */
 	if (!defined('DS'))
 		define('DS', DIRECTORY_SEPARATOR);
 
-	/**
-	 * Define um caminho completo da aplicacao
-	 */
 	if (!defined('ROOT'))
 		define('ROOT', dirname(dirname(dirname(__FILE__))));
 
-	/**
-	 * Define o diretorio atual da aplicação
-	 */
 	if (!defined('APP_DIR'))
 		define('APP_DIR', basename(dirname(dirname(__FILE__))));
-
 
 	$_SERVER['PHP_SELF'] = str_replace("admin/Webroot/index.php", "", $_SERVER['PHP_SELF']);
 
@@ -47,7 +31,6 @@
 	define('CSS', URL . "admin/css/");
 	define('FULL_URL', "http://" . $_SERVER['SERVER_NAME'] . URL);
 
-//    print_r($_SERVER);
 	define( 'LIB', '../../admin/Lib/' );
 	define( 'FILES',  '../../admin/Webroot/files/' );
 	define( 'CONTROLLERS', '../../admin/Controllers/' );
@@ -58,8 +41,7 @@
 	define( 'CORE', '../../admin/Core/' );
 	define( 'CONFIG', '../../admin/Config/' );
 
-
-	function __autoload( $file )
+	function __autoload($file)
 	{
 		if( file_exists(MODELS . $file . ".php"))
 			require_once( MODELS . $file . ".php");
@@ -80,7 +62,6 @@
 		else
 			die($file . " não encontrado" );
 	}
-
 
 	 $core = new Core();
 	 $core -> start();

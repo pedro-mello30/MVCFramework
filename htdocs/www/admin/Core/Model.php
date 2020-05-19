@@ -38,7 +38,6 @@
 abstract class Model
 {
     //// Static ////
-
     private static $connectionPDO;
 
     protected static function getConnectionPDO() : PDO

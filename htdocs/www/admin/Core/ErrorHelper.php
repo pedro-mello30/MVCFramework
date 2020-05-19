@@ -43,7 +43,6 @@ class ErrorHelper
 
     function __construct($type)
     {
-
         if($this->error)
         {
             switch ($type)
@@ -83,7 +82,8 @@ class ErrorHelper
         }
     }
 
-    function redirectErrorPage(){
+    function redirectErrorPage()
+    {
         error_reporting(0);
         header('Location:' . URL_ADMIN . 'erro/pagina_nao_encontrada');
     }
