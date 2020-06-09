@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da1c0bf3-d8ac-49d8-8ef3-63a622ecc070" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/default_env" beforeDir="false" afterPath="$PROJECT_DIR$/default_env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newDocker/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newDocker/configure.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +76,7 @@
       <workItem from="1590414796223" duration="1528000" />
       <workItem from="1591197108432" duration="4827000" />
       <workItem from="1591640521077" duration="2509000" />
-      <workItem from="1591727127176" duration="2236000" />
+      <workItem from="1591727127176" duration="2410000" />
     </task>
     <servers />
   </component>
