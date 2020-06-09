@@ -56,7 +56,7 @@
 		else if( file_exists(LIB . $file . ".php"))
 			require_once( LIB . $file . ".php");
 		else if( $file == "DATABASE_CONFIG")
-			require_once( CONFIG . "database.php");
+			require_once(CONFIG . "database.php");
 		else if( $file == "CRUD")
 			require_once( CONTROLLERS . $file.".php");
 		else

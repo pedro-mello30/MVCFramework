@@ -1,15 +1,9 @@
 version: "3.1"
 services:
         www:
-                build:
-                        context: ./php-apache
-                        args:
-                                - PHP_APACHE_INSTALL_PDO_MYSQL=${PHP_APACHE_INSTALL_PDO_MYSQL}
-                        dockerfile: Dockerfile
+                image: pedromellob1/fwapachephp:latest
                 ports:
                         - "${APPLICATION_PORT}:80"
-                        # - "8001:8008"
-                        - "8080"
                 volumes:
                         - ${APPLICATION}:/var/www/html/
                 links:
@@ -46,18 +40,16 @@ services:
                         MYSQL_USER: ${MYSQL_USER}
                         MYSQL_PASSWORD: ${MYSQL_PASSWORD}
                         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-#        grunt:
-#                build:
-#                        context: ./grunt
-#                        dockerfile: Dockerfile
-#                links:
-#                        - www
-#                ports:
-#                        - "${GRUNT_PORT}"
-#                volumes:
-#                        - ${GRUNT_PATH}:/usr/src/project
-#                        - ${GRUNT_TARGET_PATH}:/usr/src/project/out/
-#                working_dir: /usr/src/project
+        grunt:
+                image: pedromellob1/fwgrunt:latest
+                links:
+                        - www
+                ports:
+                        - "${GRUNT_PORT}"
+                volumes:
+                        - ${GRUNT_PATH}:/usr/src/project
+                        - ${GRUNT_TARGET_PATH}:/usr/src/project/out/
+                working_dir: /usr/src/project
 #        gruntadm:
 #                build:
 #                        context: ./grunt
