@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da1c0bf3-d8ac-49d8-8ef3-63a622ecc070" name="Default Changelist" comment="" />
+    <list default="true" id="da1c0bf3-d8ac-49d8-8ef3-63a622ecc070" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default_env" beforeDir="false" afterPath="$PROJECT_DIR$/default_env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/admin/Webroot/js/site.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Webroot/js/site.min.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,6 +81,8 @@
       <workItem from="1591197108432" duration="4827000" />
       <workItem from="1591640521077" duration="2509000" />
       <workItem from="1591727127176" duration="2722000" />
+      <workItem from="1592418549805" duration="5261000" />
+      <workItem from="1592585948378" duration="5187000" />
     </task>
     <servers />
   </component>
@@ -114,6 +122,10 @@
     </state>
     <state x="616" y="1447" key="com.intellij.ide.util.TipDialog/0.1080.1920.1080/59.0.1861.1080@0.1080.1920.1080" timestamp="1586445576918" />
     <state x="656" y="367" key="com.intellij.ide.util.TipDialog/0.1080.1920.1080/59.0.1861.1080@59.0.1861.1080" timestamp="1586376474624" />
+    <state x="600" y="167" width="762" height="780" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1591730663981">
+      <screen x="52" y="27" width="1868" height="1053" />
+    </state>
+    <state x="600" y="167" width="762" height="780" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/52.27.1868.1053@52.27.1868.1053" timestamp="1591730663981" />
     <state x="680" y="162" width="723" height="783" key="find.popup" timestamp="1588620801993">
       <screen x="59" y="27" width="1861" height="1053" />
     </state>

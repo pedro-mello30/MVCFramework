@@ -12,15 +12,15 @@ MYSQL_USER=user
 MYSQL_PASSWORD=user
 MYSQL_ROOT_PASSWORD=root
 MYSQL_DUMP=./dump/default.sql
-#MYSQL_CONF=./mysql/conf
+MYSQL_CONF=./dump/conf
 
 ### PHPMYADMIN ###
 PHPMYADMIN_PORT=8000
 
 ### GRUNT ###
 GRUNT_PORT=8080
-GRUNT_PATH=./htdocs/www/src
-GRUNT_TARGET_PATH=./htdocs/www/app/webroot/
+GRUNT_PATH=./htdocs/admin/src
+GRUNT_TARGET_PATH=./htdocs/admin/Webroot/
 
-GRUNT_ADMIN_PATH=./htdocs/www/srcAdmin
-GRUNT_ADMIN_TARGET_PATH=./htdocs/www/admin/webroot/
+#GRUNT_ADMIN_PATH=./htdocs/www/srcAdmin
+#GRUNT_ADMIN_TARGET_PATH=./htdocs/www/admin/webroot/
