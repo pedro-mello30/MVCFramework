@@ -1,14 +1,13 @@
 {
-  "name": "project-name",
+  "name": "frameworkmvcphp",
   "version": "0.1.0",
-  "title": "Project Title",
-  "homepage": "www.project.com",
-  "description": "Some description.",
+  "title": "Framework MVC PHP",
+  "description": "",
+  "license": "MIT",
   "private": true,
+  "repository": "",
   "author": {
-    "name": "Author name",
-    "url": "http://authorsite.com.br",
-    "email": "author@email.com"
+    "name": "Pedro Mello"
   },
   "keywords": [
     "framework",
@@ -28,23 +27,20 @@
     "url": ""
   },
   "engines": {
-    "node": ">=0.8.0",
-    "npm": ">=1.1.0"
+    "node": ">=8.10.0",
+    "npm": ">=8.10"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-autoprefixer": "~0.6.3",
-    "grunt-contrib-compass": "^0.6.0",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-jshint": "~0.6.4",
-    "grunt-contrib-uglify": "~0.2.4",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-ftp-deploy": "0.0.10",
-    "grunt-ftpush": "~0.3.3",
-    "grunt-rsync": "~0.2.1",
-    "grunt-shell": "~0.6.4",
-    "load-grunt-tasks": "~0.2.0",
-    "time-grunt": "~0.1.1",
+    "grunt": "^1.2.1",
+    "grunt-autoprefixer": "~3.0.4",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-connect": "^2.1.0",
+    "grunt-contrib-jshint": "~2.1.0",
+    "grunt-contrib-uglify": "~4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-shell": "~3.0.1",
+    "load-grunt-tasks": "~5.1.0",
+    "time-grunt": "~2.0.0",
     "bootstrap-sass": "^3.4.1"
   }
 }

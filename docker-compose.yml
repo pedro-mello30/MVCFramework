@@ -44,13 +44,11 @@ services:
                 image: pedromellob1/fwgrunt:latest
                 links:
                         - www
-#                ports:
-#                        - "${GRUNT_PORT}"
                 volumes:
                         - ${GRUNT_PATH}:/usr/src/project
                         - ${GRUNT_TARGET_PATH}:/usr/src/project/out/
                 working_dir: /usr/src/project
-                command: grunt
+                command: bash -c "npm install && grunt"
 #        gruntadm:
 #                build:
 #                        context: ./grunt
