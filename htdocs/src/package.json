@@ -42,5 +42,10 @@
     "load-grunt-tasks": "~5.1.0",
     "time-grunt": "~2.0.0",
     "bootstrap-sass": "^3.4.1"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "bootstrap": "4.5.0",
+    "datatables.net-bs4": "^1.10.21"
   }
 }

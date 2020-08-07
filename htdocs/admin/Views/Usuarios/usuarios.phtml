@@ -1,6 +1,5 @@
 
-<?php print_r($dados);
-    extract($dados);
+<?php
     $labelPage = RedirectHelper::getCurrentAction() == 'adicionar'? "Adicionar": "Editar";
 
 ?>
@@ -17,10 +16,10 @@
 <div class="row justify-content-center content-form">
     <div class="col-md-8">
         <h4 class="mb-3">Personal data</h4>
-        <form class="needs-validation" novalidate action="<?= URL_ADMIN ?>usuarios/<?= RedirectHelper::getCurrentAction() == 'adicionar'? "adicionar": "editar/".$id_admin_users ?>" method="POST" enctype="multipart/form-data">
+        <form class="needs-validation" novalidate action="<?= URL_ADMIN ?>usuarios/<?= RedirectHelper::getCurrentAction() == 'adicionar'? "adicionar": "editar/". $usuario->id_admin_users ?>" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="firstName">Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="" value="<?= $name ?>">
+                <input type="text" class="form-control" id="name" name="name" placeholder="" value="<?= $usuario->name ?>">
                 <div class="invalid-feedback">
                     Valid first name is required.
                 </div>
@@ -32,7 +31,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">@</span>
                     </div>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= $username ?>">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= $usuario->username ?>">
                     <div class="invalid-feedback" style="width: 100%;">
                         Your username is required.
                     </div>
@@ -41,7 +40,7 @@
 
             <div class="mb-3">
                 <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="<?= $email ?>">
+                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="<?= $usuario->email ?>">
                 <div class="invalid-feedback">
                     Please enter a valid email address for shipping updates.
                 </div>
@@ -54,38 +53,43 @@
 
 
             <div class="row">
-                <?php
-                    if(RedirectHelper::getCurrentAction() == "editar"):
-                ?>
-                    <div class="col-md-12 mb-3">
-                        <label for="cc-name">Current password</label>
-                        <input type="password" class="form-control" id="cc-name" name="currentpassword" placeholder="">
+<!--                --><?php
+//                    if(RedirectHelper::getCurrentAction() == "editar"):
+//                ?>
+<!--                    <div class="col-md-12 mb-3">-->
+<!--                        <label for="cc-name">Current password</label>-->
+<!--                        <input type="password" class="form-control" id="cc-name" name="currentpassword" placeholder="">-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            Name on card is required-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                --><?php
+//                    endif;
+//                ?>
+
+                <?php if(RedirectHelper::getCurrentAction() == "adicionar"): ?>
+                    <div class="col-md-6 mb-3">
+                        <label for="cc-name">Password</label>
+                        <input type="password" class="form-control" id="cc-name" name="password" placeholder="">
+                        <small class="text-muted">At least 4 characters.</small>
                         <div class="invalid-feedback">
                             Name on card is required
                         </div>
                     </div>
-                <?php
-                    endif;
-                ?>
-                <div class="col-md-6 mb-3">
-                    <label for="cc-name">Password</label>
-                    <input type="password" class="form-control" id="cc-name" name="password" placeholder="">
-                    <small class="text-muted">At least 4 characters.</small>
-                    <div class="invalid-feedback">
-                        Name on card is required
+                    <div class="col-md-6 mb-3">
+                        <label for="cc-number">Confirm password</label>
+                        <input type="password" class="form-control" id="cc-number" name="c_password" placeholder="">
+                        <div class="invalid-feedback">
+                            Credit card number is required
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="cc-number">Confirm password</label>
-                    <input type="password" class="form-control" id="cc-number" name="c_password" placeholder="">
-                    <div class="invalid-feedback">
-                        Credit card number is required
-                    </div>
-                </div>
+                <?php endif; ?>
+
 
             </div>
-            <hr class="mb-4">
 
+
+            <hr class="mb-4">
             <div class="row justify-content-end">
                 <div class=" col-md">
                     <button class="btn btn-70e7 btn-lg float-right" type="submit"><?= $labelPage ?></button>

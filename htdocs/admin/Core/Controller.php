@@ -35,7 +35,7 @@
  *
  */
 
-class Controller
+abstract class Controller
 {
     protected $layout = 'default';
     protected $redir = null;
@@ -113,89 +113,4 @@ class Controller
         return VIEWS . $pasta;
     }
 
-    //// CRUD ////
-
-    protected function list($params = null)
-    {
-        $return = null;
-
-        if($this->modelController->getAll())
-        {
-            $key = $this -> redir -> getCurrentController();
-
-            $order = (isset($this->modelController -> orderby[$key])) ? "ORDER BY " . $this->modelController -> orderby[$key] : "";
-            $return[$key] = $this->modelController->consult("SELECT * FROM `{$this->modelController->_tabela}` {$order}");
-
-        }
-
-        return $return;
-    }
-
-    protected function add($params = null)
-    {
-        if(!empty($_FILES))
-        {
-            $key = array_keys($_FILES);
-
-            for ($i=0; $i < count($key); $i++)
-            {
-                $imageHelper = new ImageHelper();
-                $_POST[$key[$i]] = $imageHelper -> saveCompressedFromUpload( $_FILES[ $key[$i] ]);
-            }
-        }
-
-        if($_POST)
-        {
-            if(isset($_POST['password']))
-                $_POST['password'] = hash('sha512', $_POST['password']);
-
-            if($this -> modelController){
-                if($this -> modelController -> insert($_POST)){
-                    return 1;
-                }else{
-                    return 0;
-                }
-            }
-        }
-    }
-
-    protected function edit($params = null)
-    {
-        if(!isset($params[0]))
-            return false;
-
-        $where = 'id_' . $this->modelController->_tabela . ' = ' . $params[0];
-
-        if(!empty($_FILES))
-        {
-            $key = array_keys($_FILES);
-
-            for ($i=0; $i < count($key); $i++)
-            {
-                $imageHelper = new ImageHelper();
-                $_POST[$key[$i]] = $imageHelper -> saveCompressedFromUpload( $_FILES[ $key[$i] ]);
-            }
-        }
-
-        if($_POST)
-        {
-            if(isset($_POST['password']))
-                $_POST['password'] = hash('sha512', $_POST['password']);
-
-            if($this -> modelController){
-                if($this ->modelController->update($_POST, $where ,true)){
-                    return 1;
-                }else{
-                    return 0;
-
-                }
-            }
-        }
-    }
-
-    protected function del($params = null)
-    {
-        $where = 'id_' . $this->modelController->_tabela . ' = ' . $params[0];
-        $this->modelController->delete($where);
-    }
 }

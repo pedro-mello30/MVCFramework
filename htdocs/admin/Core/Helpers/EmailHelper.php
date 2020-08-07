@@ -61,7 +61,9 @@ class EmailHelper
         $this->mailer = new PHPMailer();
         $this->mailer->SetLanguage("br", HELPERS . "/Email/language/");
 
-        $this->mailer->SMTPDebug = 3;
+        $this->mailer->SMTPDebug = 0;
+
+//        $this->mailer->SMTPDebug = 3;
         $this->mailer->isSMTP();
         $this->mailer->SMTPAuth = true;
         $this->mailer->isHTML(true);

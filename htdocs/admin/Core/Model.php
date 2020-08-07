@@ -40,6 +40,7 @@ abstract class Model
     //// Static ////
     private static $connectionPDO;
 
+    ///// STATIC METHODS /////
     protected static function getConnectionPDO() : PDO
     {
         if(!isset(self::$connectionPDO)){
@@ -70,7 +71,7 @@ abstract class Model
         return null;
     }
 
-    protected static function getIDName() : ?string
+    public static function getIDName() : ?string
     {
         if(self::getTableName())
             return "id_".self::getTableName();
@@ -82,16 +83,12 @@ abstract class Model
     }
 
     ///// QUERY METHODS /////
-
     protected static function getQuerySetup($limit = null, $orderBy = null) : string
     {
         $orderBy = (!is_null($orderBy)) ? " ORDER BY {$orderBy} " : " ";
         $limit = (!is_null($limit)) ? " LIMIT {$limit} " : " ";
         return "{$orderBy} {$limit}";
     }
-
-
-    ///// STATIC METHODS /////
 
     public static function getAll($limit = null, $orderBy = null, $debug = false) : ?array
     {
@@ -192,8 +189,7 @@ abstract class Model
     }
 
     ///// OBJECTS METHODS /////
-
-    private $schema = array();
+    protected $schema = array();
 
     public function __construct($newSchema, $data = null)
     {
@@ -293,7 +289,6 @@ abstract class Model
         }
         return true;
     }
-
 
     public function delete($debug = false) : bool
     {

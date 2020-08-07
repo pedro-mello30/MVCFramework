@@ -55,7 +55,7 @@ class usuarios extends Controller
 
     public function listar($params = null)
     {
-        $this->output = parent::list($params);
+        $this->output['usuarios'] = Usuarios_Model::getAll();
 
         $this->view('index', $this->output);
     }
@@ -63,29 +63,44 @@ class usuarios extends Controller
     public function adicionar($params = null)
     {
         if($_POST){
-            parent::add($params);
+            $auth = new AuthHelper();
+            if($auth->signUp($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password']))
+                RedirectHelper::goToController("usuarios");
         }
 
-        $this->view('usuarios', $this->_dados);
+        $this->view('usuarios');
     }
 
     public function editar($params = null)
     {
         if(!isset($params[0]))
-            $this -> getRedir() -> goToControllerAction('usuarios', 'adicionar');
+            $this->getRedir()->goToControllerAction('usuarios', 'adicionar');
 
-        $this -> output['dados'] = $this-> getModelController() -> readLine("id_admin_users=" . $params[0], true);
+        $idName = Usuarios_Model::getIDName();
+        $this->output['usuario'] = Usuarios_Model::getBy($idName, $params[0]);
 
         if($_POST){
-            parent::edit($params);
+            $_POST[$idName] = $params[0];
+
+            foreach ($_POST as $key => $d)
+            {
+//                If in case the _post form have passwords fields ## Use the AuthHelper
+//                if($key !== "c_password" || "password" || "currentpassword")
+                    $data[$key] = $d;
+            }
+            $user = new Usuarios_Model($data);
+            $user->save();
+            RedirectHelper::goToController("usuarios");
         }
 
-        unset($this -> output['dados']['password']);
         $this->view('usuarios', $this->output);
     }
 
     public function delete($params = null){
-        parent::del($params);
+        $idName = Usuarios_Model::getIDName();
+        $user = new Usuarios_Model(array($idName => $params[0]));
+        $user->delete();
+
         $this -> getRedir()->goToControllerAction('usuarios', 'listar');
     }
 

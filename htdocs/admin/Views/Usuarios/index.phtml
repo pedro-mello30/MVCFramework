@@ -11,32 +11,34 @@
         <thead>
         <tr>
 
-            <?php  foreach ( $usuarios[0] as $key => $i): ?>
-                <th><?= $key ?></th>
-            <?php endforeach; ?>
-
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Data de inicio</th>
+            <th>Status</th>
             <th class="wactions">Ações</th>
         </tr>
         </thead>
         <tbody>
 
-        <?php  foreach ( $usuarios as $info): ?>
+        <?php foreach ($usuarios as $info): ?>
 
             <tr>
-                <?php  foreach ( $info as $key => $i): ?>
-                    <td><?= substr($i, 0, 15) ?><?= (strlen($i) > 15) ? "..." : "" ?></td>
-                <?php endforeach; ?>
-
+                <td><?= $info->name ?></td>
+                <td><?= $info->email ?></td>
+                <td><?= $info->username ?></td>
+                <td><?= $info->date_initiated ?></td>
+                <td><?= $info->status ?></td>
 
                 <td class='wactions'>
 
                     <!-- EDITAR -->
-                    <a title='editar' href='<?= URL_ADMIN ?>usuarios/editar/<?= $info['id_admin_users'] ?>' class='btn btn-small btn-success'>
+                    <a title='editar' href='<?= URL_ADMIN ?>usuarios/editar/<?= $info->id_admin_users ?>' class='btn btn-small btn-success'>
                         <span data-feather="edit"></span>
                     </a>
 
                     <!-- EXCLUIR -->
-                    <a id="delete<?= $i[$key] ?>" title='excluir' data='<?= URL_ADMIN ?>usuarios/delete/<?= $info['id_admin_users'] ?>' onclick="del(this.id)" class='btn btn-small btn-danger'>
+                    <a id="delete_<?= $info->id_admin_users ?>" title='excluir' href='<?= URL_ADMIN ?>usuarios/delete/<?= $info->id_admin_users ?>' onclick="del(this.id)" class='btn btn-small btn-danger'>
                         <span data-feather="delete"></span>
                     </a>
                 </td>
