@@ -7,7 +7,7 @@
 
 const { JSDOM } = require( "jsdom" );
 const { jsdom } = new JSDOM( "" );
-const jq = require("jquery")( jsdom );
+const jqa = require("jquery")( jsdom );
 
 
 
