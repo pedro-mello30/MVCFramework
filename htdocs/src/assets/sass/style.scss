@@ -1,13 +1,8 @@
-// Imports bootstrap
-//@import "bootstrap/bootstrap";
-//@import "bootstrap/bootstrap-grid";
-//@import "bootstrap/bootstrap-reboot";
+@import "../vendor/bootstrap-4.0.0/scss/bootstrap";
+@import "../vendor/bootstrap-4.0.0/scss/bootstrap-grid";
+@import "../vendor/bootstrap-4.0.0/scss/bootstrap-reboot";
 
-@import "../../node_modules/bootstrap/scss/bootstrap";
-@import "../../node_modules/bootstrap/scss/bootstrap-grid";
-@import "../../node_modules/bootstrap/scss/bootstrap-reboot";
-
-
+@import "../vendor/DataTables/datatables.css";
 
 // Imports project
 @import "variables";
@@ -16,4 +11,3 @@
 @import "footer";
 @import "home";
 @import "contato";
-//@import "datatable";

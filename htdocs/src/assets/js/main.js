@@ -2,21 +2,11 @@
 // CUSTOM JAVASCRIPT
 // ----------------------------------------------------------------------------
 "use strict";
-// var $ = require( "jquery" );
-// require( 'datatables.net-bs4' )($);
-
-const { JSDOM } = require( "jsdom" );
-const { jsdom } = new JSDOM( "" );
-const jqa = require("jquery")( jsdom );
-
-
 
 // DOM //
 $(document).ready(function(){
     // Stuff to do as soon as the DOM is ready;
 });
-
-
 
 $('.data-table').DataTable({
     language: {
@@ -34,6 +24,11 @@ $('.data-table').DataTable({
     }
 });
 
+function del (id)
+{
+    if(confirm('Tem certeza que deseja excluir?'))
+        window.location.href = $("#" + id).attr("data");
+}
 
 function estouTestando(a) {
     console.log("hi");

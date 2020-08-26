@@ -95,12 +95,8 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     "<%= dirs.jsPath %>/site.min.js": [
-                        // "<%= dirs.js %>/bootstrap/**/*.js",
-                        "<%= dirs.node %>/jquery/src/**/*.js",
-                        // "<%= dirs.node %>/bootstrap/js/dist/**/*.js",
+                        "<%= dirs.js %>../vendor/**/*.js",
                         "<%= dirs.js %>/main.js",
-                        // "<%= dirs.js %>/datatables/**/*.js",
-                        // "<%= dirs.js %>/legacy/*",
                     ]
                 }
             }

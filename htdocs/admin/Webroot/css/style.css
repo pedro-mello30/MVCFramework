@@ -1,63 +1,25 @@
 /*
-Error: Invalid CSS after "...lor}: #{$value}": expected "{", was ";"
-        on line 5 of /usr/src/project/node_modules/bootstrap/scss/_root.scss
-        from line 11 of /usr/src/project/node_modules/bootstrap/scss/bootstrap.scss
-        from line 6 of /usr/src/project/assets/sass/style.scss
+Error: File to import not found or unreadable: ../vendor/bootstrap-4.0.0/scss/bootstrap.
+       Load paths:
+         Compass::SpriteImporter
+         /usr/src/project/assets/sass
+         /var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets
+        on line 1 of /usr/src/project/assets/sass/style.scss
 
-1: // Do not forget to update getting-started/theming.md!
-2: :root {
-3:   // Custom variable values only support SassScript inside `#{}`.
-4:   @each $color, $value in $colors {
-5:     --#{$color}: #{$value};
-6:   }
-7: 
-8:   @each $color, $value in $theme-colors {
-9:     --#{$color}: #{$value};
-10:   }
+1: @import "../vendor/bootstrap-4.0.0/scss/bootstrap";
+2: @import "../vendor/bootstrap-4.0.0/scss/bootstrap-grid";
+3: @import "../vendor/bootstrap-4.0.0/scss/bootstrap-reboot";
+4: 
+5: @import "../vendor/DataTables/datatables.css";
+6: 
 
 Backtrace:
-/usr/src/project/node_modules/bootstrap/scss/_root.scss:5
-/usr/src/project/node_modules/bootstrap/scss/bootstrap.scss:11
-/usr/src/project/assets/sass/style.scss:6
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:1207:in `expected'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:1137:in `expected'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:1132:in `tok!'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:665:in `block'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:735:in `declaration_or_ruleset'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:685:in `block_child'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:674:in `block_contents'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:666:in `block'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:307:in `each_directive'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:222:in `special_directive'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:197:in `directive'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:685:in `block_child'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:674:in `block_contents'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:666:in `block'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:658:in `ruleset'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:684:in `block_child'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:674:in `block_contents'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:125:in `stylesheet'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:41:in `parse'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/engine.rb:409:in `_to_tree'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/engine.rb:315:in `to_tree'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:327:in `block in visit_import'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/stack.rb:88:in `block in with_import'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/stack.rb:115:in `with_frame'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/stack.rb:88:in `with_import'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `visit'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in `block in with_base'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/stack.rb:115:in `with_frame'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in `with_base'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:329:in `map'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/stack.rb:88:in `block in with_import'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/stack.rb:115:in `with_frame'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/stack.rb:88:in `with_import'
-/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
+/usr/src/project/assets/sass/style.scss:1
+/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:44:in `import'
+/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:28:in `imported_file'
+/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:37:in `css_import?'
+/var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:314:in `visit_import'
 /var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `visit'
 /var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
 /var/lib/gems/2.5.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in `block in with_base'
@@ -96,4 +58,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...lor}: #{$value}\": expected \"{\", was \";\"\A         on line 5 of /usr/src/project/node_modules/bootstrap/scss/_root.scss\A         from line 11 of /usr/src/project/node_modules/bootstrap/scss/bootstrap.scss\A         from line 6 of /usr/src/project/assets/sass/style.scss\A \A 1: // Do not forget to update getting-started/theming.md!\A 2: :root {\A 3:   // Custom variable values only support SassScript inside `#{}`.\A 4:   @each $color, $value in $colors {\A 5:     --#{$color}: #{$value};\A 6:   }\A 7: \A 8:   @each $color, $value in $theme-colors {\A 9:     --#{$color}: #{$value};\A 10:   }"; }
+  content: "Error: File to import not found or unreadable: ../vendor/bootstrap-4.0.0/scss/bootstrap.\A        Load paths:\A          Compass::SpriteImporter\A          /usr/src/project/assets/sass\A          /var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets\A         on line 1 of /usr/src/project/assets/sass/style.scss\A \A 1: @import \"../vendor/bootstrap-4.0.0/scss/bootstrap\";\A 2: @import \"../vendor/bootstrap-4.0.0/scss/bootstrap-grid\";\A 3: @import \"../vendor/bootstrap-4.0.0/scss/bootstrap-reboot\";\A 4: \A 5: @import \"../vendor/DataTables/datatables.css\";\A 6: "; }

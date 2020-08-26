@@ -1,15 +1,10 @@
 'use strict';
 
 // Basic template description.
-exports.description = 'Scaffolds a new project with GruntJS, SASS, MODX and optionally SUSY.';
+exports.description = 'Scaffolds a new project with Grunt, Jquery, Bootstrap and Datatables';
 
 // Template-specific notes to be displayed after question prompts.
-exports.after = 'You should now install project dependencies with _npm ' +
-    'install_. After that, you may execute project tasks with _grunt_. For ' +
-    'more information about installing and configuring Grunt, please see ' +
-    'the Getting Started guide:' +
-    '\n\n' +
-    'http://gruntjs.com/getting-started';
+exports.after = 'Developed by Pedro Mello';
 
 // Any existing file or directory matching this wildcard will cause a warning.
 exports.warnOn = '*';
@@ -37,19 +32,9 @@ exports.template = function(grunt, init, done) {
         // grunt.file.mkdir('assets/js/vendor');
         // grunt.file.mkdir('assets/js/plugins');
 
-
-        // // Copy files/folders depending on any options chosen
-        // if(props.SUSY == 'yes') {
-        //     init.copy('config.rb');
-        //     init.copy('assets/css/scss/_base.scss');
-        // }
-
         // Generate package.json file, used by npm and grunt.
         init.writePackageJSON('package.json', {
-                // "name": props.name,
-                // "description": props.description,
-                // "version": props.version,
-                // "title": props,
+
                 "name": "frameworkmvcphp",
                 "version": "0.1.0",
                 "title": "Framework MVC PHP",
@@ -92,11 +77,6 @@ exports.template = function(grunt, init, done) {
                     "load-grunt-tasks": "~5.1.0",
                     "time-grunt": "~2.0.0",
                     "bootstrap-sass": "^3.4.1"
-                },
-                "dependencies": {
-                    "jquery": "^3.5.1",
-                    "bootstrap": "4.5.0",
-                    "datatables.net-bs4": "^1.10.21"
                 }
             }
 
