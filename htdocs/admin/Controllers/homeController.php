@@ -40,6 +40,8 @@ class home extends Controller
 
 	public function init($params = null)
 	{
+	    AuthHelper::addActionExcept('login');
+	    AuthHelper::checkLogin();
 		parent::init();
 	}
 
@@ -55,13 +57,7 @@ class home extends Controller
 
 		if($_POST)
 		{
-			$this -> _auth -> _user  	 = $_POST['username'];
-			$this -> _auth -> _senha 	 = $_POST['password'];
-
-			if(!$this -> _auth -> login())
-				$dados['msg'] = 'Login ou senha incorreta';
-			else
-				parent::getRedir()->goToAction('index');
+            AuthHelper::signIn($_POST['username'],$_POST['password']);
 		}
 
 		$this->layout = 'login';
@@ -70,7 +66,7 @@ class home extends Controller
 
 	public function logout($params = null)
 	{
-		$this -> _auth -> logout();
+		AuthHelper::signOut();
 	}
 
 

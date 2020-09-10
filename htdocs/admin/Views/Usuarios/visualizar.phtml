@@ -1,0 +1,150 @@
+
+
+<div class='vendas'>
+    <div class='page-title'>
+        <div class='title_left'>
+            <h3>Visualizar Venda </h3>
+        </div>
+    </div>
+    <div class='clearfix'></div>
+    <br>
+    <?php if(isset($status)) echo "<div class='well well-large'><center>" . $status . "</center></div>"; ?>
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='x_panel'>
+                <div class='x_title'>
+                    <h2>ID: 7777.7777.77-77</h2>
+                    <div class='clearfix'></div>
+                </div>
+                <div class='x_content'>
+                    <div class='row topo'>
+                        <div class='col-smn-12'>
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                            <h4>Data: 07/07/77</h4>
+                        </div>
+                    </div>
+                    <div class='row dados'>
+                        <div class='col-xs-12 col-sm-4'>
+                            <endereco>
+                                De<br>
+                                <strong>70e7.inc vendas especializadas</strong><br>
+                                Estrada do catobira, 777<br>
+                                Itaipava - Petrópolis, RJ<br>
+                                Phone: (24) 2222-6190<br>
+                                atendimento@70e7.com
+
+                            </endereco>
+                        </div>
+                        <div class='col-xs-12 col-sm-4'>
+                            <endereco>
+                                Para<br>
+                                <strong>Fulano das cove</strong><br>
+                                Rua dos brabos, 171<br>
+                                Itaipava - Petrópolis, RJ<br>
+                                Phone: (24) 2222-2222<br>
+                                fulanocove@bol.com
+
+                            </endereco>
+                        </div>
+                        <div class='col-xs-12 col-sm-4'>
+                            <dadospayment>
+                                <strong>Ordem:</strong>  #000777<br>
+                                <strong>pedido:</strong> 7777.7777.77-77<br>
+                                <strong>Pagameno efetuado:</strong> 02/01/18<br>
+                                <strong>Conta:</strong> UserFlano21
+                            </dadospayment>
+                        </div>
+                    </div>
+                    <div class='row lista'>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr role='row'>
+                                <th>Qtd.</th>
+                                <th>Item</th>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                                <th>Subtotal</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr role='row'>
+                                <td>2</td>
+                                <td>Pau de sélfie</td>
+                                <td>12.7777</td>
+                                <td>Pau de selfie, com 12m de comprimento para fazer suas selfies mais radicais e inesperadas</td>
+                                <td>R$ 22,00</td>
+                            </tr>
+                            <tr role='row'>
+                                <td>1</td>
+                                <td>Corrente de pele</td>
+                                <td>555.21</td>
+                                <td>corrente de pele fina e quebradiça com 12cm de comprimento</td>
+                                <td>R$ 99,00</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='row'>
+                        <div class='col-xs-12 col-sm-6'>
+                            <h3>Método de pagamento</h3>
+                            <div class='holdCartoes'>
+                                <div class='item'>
+                                    <div class='overlay'></div>
+                                    <img src="<?= IMG ?>cartaoADM/american-express.png" alt="">
+                                </div>
+                                <div class='item'>
+                                    <div class='overlay'></div>
+                                    <img src="<?= IMG ?>cartaoADM/mastercard.png" alt="">
+                                </div>
+                                <div class='item active'>
+                                    <div class='overlay'></div>
+                                    <img src="<?= IMG ?>cartaoADM/paypal.png" alt="">
+                                </div>
+                                <div class='item'>
+                                    <div class='overlay'></div>
+                                    <img src="<?= IMG ?>cartaoADM/visa.png" alt="">
+                                </div>
+                            </div>
+                            <div class='infoPayment'>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit augue, rutrum ac eros vitae, pellentesque tempor diam. Integer quis vulputate diam, aliquet auctor justo. Sed cursus nisl in pretium consectetur
+                            </div>
+                        </div>
+                        <div class='col-xs-12 col-sm-6'>
+                            <h3>Valor Final</h3>
+                            <div class='table-responsive'>
+                                <table class='table'>
+                                    <tbody>
+                                    <tr>
+                                        <th>Subtotal:</th>
+                                        <td>R$ 121,00</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tax (10%)</th>
+                                        <td>R$ 12,10</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Envio</th>
+                                        <td>R$ 23,00</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total</th>
+                                        <td>R$ 156,10</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <button class='btn-success'><i class="fa fa-print" aria-hidden="true"></i> Imprimir</button>
+                        <button class='btn-success'><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Gerar PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

@@ -2,6 +2,8 @@
 
 class Erro extends Controller
 {
+    protected $layout = "login";
+
 	public function index_action($params = null)
 	{
 		$this->view('404');

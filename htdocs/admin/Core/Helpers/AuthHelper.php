@@ -48,10 +48,10 @@ class AuthHelper
     private static $dateColumn = 'date_initiated';
     private static $statusColumn = 'status';
 
-    private static $controllerSuccess = 'usuarios';
-    private static $actionSuccess = 'listar';
-    private static $controllerError = 'contato';
-    private static $actionError = 'adicionar';
+    private static $controllerSuccess = 'home';
+    private static $actionSuccess = '';
+    private static $controllerError = 'home';
+    private static $actionError = 'login';
 
     private static $actionsExceptions = array();
 
@@ -237,6 +237,7 @@ class AuthHelper
             session_destroy();
             session_regenerate_id();
         }
+        RedirectHelper::goToControllerAction(self::$controllerError, self::$actionError);
     }
 
     public static function confirmEmail($token) : bool

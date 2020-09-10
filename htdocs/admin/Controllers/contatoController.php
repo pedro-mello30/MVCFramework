@@ -3,6 +3,8 @@ class contato extends Controller implements CRUD
 {
     public function init($params = null)
     {
+        AuthHelper::checkLogin();
+
         parent::init();
     }
 

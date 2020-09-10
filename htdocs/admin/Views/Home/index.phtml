@@ -4,4 +4,58 @@
     </div>
 
 
-    <a onclick="estouTestando('ola')">ahhahahah</a>
+    <!-- Step 1: Create the containing elements. -->
+
+    <section id="auth-button"></section>
+    <section id="timeline"></section>
+
+    <!-- Step 2: Load the library. -->
+
+    <script>
+        (function(w,d,s,g,js,fjs){
+            g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(cb){this.q.push(cb)}};
+            js=d.createElement(s);fjs=d.getElementsByTagName(s)[0];
+            js.src='https://apis.google.com/js/platform.js';
+            fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
+        }(window,document,'script'));
+        chrome://vivaldi-webui/startpage?section=Speed-dials&activeSpeedDialIndex=0&background-color=#2e2e2e    </script>
+
+    <script>
+        gapi.analytics.ready(function() {
+
+            // Step 3: Authorize the user.
+
+            var CLIENT_ID = '205446151674-qkudp4u6mgupq800o3nboc6hra9d0j00.apps.googleusercontent.com';
+
+            gapi.analytics.auth.authorize({
+                container: 'auth-button',
+                clientid: CLIENT_ID,
+                userInfoLabel:""
+            });
+
+            // Step 5: Create the timeline chart.
+            var timeline = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    'dimensions': 'ga:date',
+                    'metrics': 'ga:sessions',
+                    'start-date': '30daysAgo',
+                    'end-date': 'yesterday',
+                    'ids': "ga:31405"
+                },
+                chart: {
+                    type: 'LINE',
+                    container: 'timeline'
+                }
+            });
+
+            gapi.analytics.auth.on('success', function(response) {
+                //hide the auth-button
+                document.querySelector("#auth-button").style.display='none';
+
+                timeline.execute();
+
+            });
+insta
+        });
+    </script>

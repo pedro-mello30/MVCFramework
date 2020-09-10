@@ -39,7 +39,7 @@
 class ErrorHelper
 {
     private $error = true;
-    private $debug = true;
+    private $debug = false;
 
     function __construct($type)
     {

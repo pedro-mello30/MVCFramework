@@ -41,6 +41,8 @@ class usuarios extends Controller
 
     public function init($params = null)
     {
+        AuthHelper::checkLogin();
+
         parent::init();
         $this->_dados[] = '';
 
@@ -58,6 +60,12 @@ class usuarios extends Controller
         $this->output['usuarios'] = Usuarios_Model::getAll();
 
         $this->view('index', $this->output);
+    }
+
+    public function visualizar($params = null){
+        $output["usuario"] = Usuarios_Model::getBy(Usuarios_Model::getIDName(), $params[0]);
+
+        $this->view("visualizar", $output);
     }
 
     public function adicionar($params = null)
