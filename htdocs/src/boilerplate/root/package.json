@@ -1,30 +1,16 @@
 {
   "name": "frameworkmvcphp",
-  "version": "0.1.0",
   "title": "Framework MVC PHP",
   "description": "",
-  "license": "MIT",
-  "private": true,
-  "repository": "",
-  "author": {
-    "name": "Pedro Mello"
-  },
-  "keywords": [
-    "framework",
-    "boilerplate",
-    "project",
-    "sass",
-    "compass",
-    "grunt",
-    "bower",
-    "php"
-  ],
+  "version": "0.1.0",
   "repository": {
     "type": "",
     "url": ""
   },
   "bugs": {
-    "url": ""
+    "url": {
+      "url": ""
+    }
   },
   "engines": {
     "node": ">=8.10.0",
@@ -43,9 +29,14 @@
     "time-grunt": "~2.0.0",
     "bootstrap-sass": "^3.4.1"
   },
-  "dependencies": {
-    "jquery": "^3.5.1",
-    "bootstrap": "4.5.0",
-    "datatables.net-bs4": "^1.10.21"
-  }
+  "keywords": [
+    "framework",
+    "boilerplate",
+    "project",
+    "sass",
+    "compass",
+    "grunt",
+    "bower",
+    "php"
+  ]
 }

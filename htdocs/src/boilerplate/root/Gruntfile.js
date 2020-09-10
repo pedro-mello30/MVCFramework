@@ -10,6 +10,7 @@ module.exports = function(grunt) {
             img: "assets/images",
             libs: "assets/lib",
             fonts: "assets/fonts",
+            vendor: "assets/vendor",
             node: "node_modules",
 
             // FRAMEWORK PATHS
@@ -95,12 +96,10 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     "<%= dirs.jsPath %>/site.min.js": [
-                        // "<%= dirs.js %>/bootstrap/**/*.js",
-                        "<%= dirs.node %>/jquery/src/**/*.js",
-                        // "<%= dirs.node %>/bootstrap/js/dist/**/*.js",
+                        "<%= dirs.vendor %>/Jquery/*.js",
+                        "<%= dirs.vendor %>/bootstrap-4.0.0/dist/js/*.js",
+                        "<%= dirs.vendor %>/DataTables/*.js",
                         "<%= dirs.js %>/main.js",
-                        // "<%= dirs.js %>/datatables/**/*.js",
-                        // "<%= dirs.js %>/legacy/*",
                     ]
                 }
             }

@@ -26,8 +26,11 @@ $('.data-table').DataTable({
 
 function del (id)
 {
-    if(confirm('Tem certeza que deseja excluir?'))
+    if(confirm('Tem certeza que deseja excluir?')) {
+
+        console.log($("#" + id).attr("data"));
         window.location.href = $("#" + id).attr("data");
+    }
 }
 
 function estouTestando(a) {

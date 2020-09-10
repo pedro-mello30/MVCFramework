@@ -2,215 +2,62 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da1c0bf3-d8ac-49d8-8ef3-63a622ecc070" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htdocs/admin/Views/Usuarios/visualizar.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/adm-bootstrap-fileupload.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/adm-bootstrap-responsive.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/adm-bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/adm-style-responsive.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/adm-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/datatables.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/font/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/font/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/font/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/font/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/adm/font/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/langs/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/license.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/advlist/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/anchor/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/autolink/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/autoresize/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/autosave/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/bbcode/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/charmap/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/code/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/compat3x/editable_selects.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/compat3x/form_utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/compat3x/mctabs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/compat3x/tiny_mce_popup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/compat3x/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/contextmenu/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/directionality/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-cool.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-cry.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-embarassed.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-frown.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-innocent.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-kiss.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-laughing.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-money-mouth.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-sealed.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-smile.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-surprised.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-tongue-out.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-undecided.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-wink.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/img/smiley-yell.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/emoticons/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/example/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/example_dependency/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/fullpage/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/fullscreen/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/hr/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/image/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/insertdatetime/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/autoload.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/config.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/constants.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/doctypes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/foreign_chars.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/hooks.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/migration.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/mimes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/profiler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/routes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/smileys.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/uploader_settings.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/config/user_agents.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/controllers/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/controllers/uploader.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/errors/error_404.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/errors/error_db.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/errors/error_general.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/errors/error_php.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/errors/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/helpers/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/helpers/jbimages_helper.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/language/english/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/language/english/jbstrings_lang.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/language/french/imglib_lang.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/language/french/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/language/french/jbstrings_lang.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/language/french/upload_lang.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/language/russian/imglib_lang.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/language/russian/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/language/russian/jbstrings_lang.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/language/russian/upload_lang.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/views/ajax_upload_result.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/views/blank.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/application/views/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Benchmark.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/CodeIgniter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Common.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Config.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Exceptions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Hooks.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Input.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Lang.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Loader.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Model.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Output.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Router.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Security.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/URI.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/Utf8.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/core/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/helpers/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/helpers/language_helper.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/language/english/imglib_lang.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/language/english/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/language/english/upload_lang.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/language/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/libraries/Image_lib.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/libraries/Upload.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/ci/system/libraries/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/config.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/css/dialog-v4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/css/dialog.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/dialog-v4.htm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/dialog-v4.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/dialog.htm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/dialog.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/editor_plugin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/editor_plugin_src.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/img/jbimages-bw.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/img/spinner.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/is_allowed.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/js/dialog-v4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/js/dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/langs/en.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/langs/en_dlg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/langs/fr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/langs/fr_dlg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/langs/ru.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/langs/ru_dlg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/plugin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/jbimages/readme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/layer/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/legacyoutput/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/link/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/lists/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/media/moxieplayer.swf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/media/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/nonbreaking/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/noneditable/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/pagebreak/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/paste/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/preview/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/print/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/save/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/searchreplace/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/spellchecker/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/tabfocus/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/table/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/template/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/textcolor/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/visualblocks/css/visualblocks.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/visualblocks/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/visualchars/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/plugins/wordcount/plugin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/content.inline.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/content.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/fonts/icomoon-small.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/fonts/icomoon-small.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/fonts/icomoon-small.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/fonts/icomoon-small.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/fonts/icomoon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/fonts/icomoon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/fonts/icomoon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/fonts/icomoon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/fonts/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/img/anchor.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/img/loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/img/object.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/img/trans.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/img/wline.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/skin.ie7.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/skins/lightgray/skin.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/themes/modern/theme.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/Trash/tinymce/tinymce.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Controllers/contatoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Controllers/contatoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Controllers/erroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Controllers/erroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Controllers/homeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Controllers/homeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Controllers/usuariosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Controllers/usuariosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Core/ErrorHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Core/ErrorHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Core/Helpers/AuthHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Core/Helpers/AuthHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Views/Home/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Views/Home/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Views/Usuarios/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Views/Usuarios/index.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/admin/Views/Layouts/default.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Views/Layouts/default.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/admin/Webroot/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Webroot/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/admin/Webroot/js/site.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Webroot/js/site.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/.jshintrc" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/.jshintrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/src/.sass-cache/9b024004796c06ed747d0480b5610345c2605e48/_header.sassc" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/.sass-cache/9b024004796c06ed747d0480b5610345c2605e48/_header.sassc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/.sass-cache/9b024004796c06ed747d0480b5610345c2605e48/style.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/.sass-cache/9b024004796c06ed747d0480b5610345c2605e48/style.scssc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/src/Gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/Gruntfile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/src/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/src/assets/sass/_header.sass" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/assets/sass/_header.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/src/assets/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/assets/sass/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/src/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/.jshintrc" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/.jshintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/Gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/Gruntfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/sass/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/DataTables/DataTables-1.10.21/images/sort_asc.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/DataTables/DataTables-1.10.21/images/sort_asc.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/DataTables/DataTables-1.10.21/images/sort_asc_disabled.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/DataTables/DataTables-1.10.21/images/sort_asc_disabled.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/DataTables/DataTables-1.10.21/images/sort_both.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/DataTables/DataTables-1.10.21/images/sort_both.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/DataTables/DataTables-1.10.21/images/sort_desc.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/DataTables/DataTables-1.10.21/images/sort_desc.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/DataTables/DataTables-1.10.21/images/sort_desc_disabled.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/DataTables/DataTables-1.10.21/images/sort_desc_disabled.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/brand/bootstrap-social-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/brand/bootstrap-social-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/brand/bootstrap-social.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/brand/bootstrap-social.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/bootstrap-stack.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/bootstrap-stack.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/bootstrap-themes.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/bootstrap-themes.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/android-chrome-192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/android-chrome-192x192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/android-chrome-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/android-chrome-512x512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/favicon-16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/mstile-144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/mstile-144x144.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/mstile-150x150.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/mstile-150x150.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/mstile-310x150.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/mstile-310x150.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/mstile-310x310.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/mstile-310x310.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/mstile-70x70.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/assets/img/favicons/mstile-70x70.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/build/gcp-key.json.enc" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/build/gcp-key.json.enc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/album.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/album.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/blog.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/blog.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/carousel.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/carousel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/checkout.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/checkout.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/cover.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/cover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/dashboard.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/dashboard.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/floating-labels.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/floating-labels.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/grid.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/grid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/jumbotron.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/jumbotron.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/navbar-bottom.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/navbar-bottom.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/navbar-fixed.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/navbar-fixed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/navbar-static.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/navbar-static.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/navbars.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/navbars.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/offcanvas.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/offcanvas.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/pricing.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/pricing.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/product.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/product.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/sign-in.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/sign-in.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/starter-template.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/starter-template.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/sticky-footer-navbar.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/sticky-footer-navbar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/sticky-footer.png" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/docs/4.0/examples/screenshots/sticky-footer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/assets/vendor/bootstrap-4.0.0/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/boilerplate/root/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/boilerplate/root/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
