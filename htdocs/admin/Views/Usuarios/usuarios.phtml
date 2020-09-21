@@ -1,9 +1,14 @@
 
 <?php
     $labelPage = RedirectHelper::getCurrentAction() == 'adicionar'? "Adicionar": "Editar";
-
+//    $erro = "erro adcionar";
+    if(isset($erro)){
+        $msg = '<div class="alert alert-danger" role="alert">';
+        $msg .= $erro;
+        $msg .= '</div>';
+        echo $msg;
+    }
 ?>
-
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
     <h1 class="h2"><?= $labelPage ?> usuário</h1>

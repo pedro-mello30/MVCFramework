@@ -72,8 +72,13 @@ class usuarios extends Controller
     {
         if($_POST){
             $auth = new AuthHelper();
-            if($auth->signUp($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password']))
+            if($auth->signUp($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'])) {
                 RedirectHelper::goToController("usuarios");
+            }
+            else {
+                $this->view('usuarios', array('erro' => 'Erro adicionar!'));
+            }
+
         }
 
         $this->view('usuarios');
