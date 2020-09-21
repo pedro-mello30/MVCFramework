@@ -94,11 +94,12 @@ abstract class Controller
         $viewFile = $this->getViewPath() . "/" .$nome_pagina . ".phtml";
         $conteudo = $builder->buildView($viewFile, $vars);
 
-        $tags = array( 'conteudo' => $conteudo);
+        $tags = array('conteudo' => $conteudo);
 
         $builder->buildLayout($tags);
 
         echo $builder->display();
+        exit();
     }
 
     public function getViewPath()
