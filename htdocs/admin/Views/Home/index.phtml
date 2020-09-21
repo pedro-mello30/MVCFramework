@@ -3,11 +3,14 @@
         <h1 class="h2">Home Admin</h1>
     </div>
 
-
     <!-- Step 1: Create the containing elements. -->
 
+
     <section id="auth-button"></section>
+    <section id="view-selector"></section>
     <section id="timeline"></section>
+    <section id="timelineB"></section>
+
 
     <!-- Step 2: Load the library. -->
 
@@ -18,8 +21,7 @@
             js.src='https://apis.google.com/js/platform.js';
             fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
         }(window,document,'script'));
-        chrome://vivaldi-webui/startpage?section=Speed-dials&activeSpeedDialIndex=0&background-color=#2e2e2e    </script>
-
+    </script>
     <script>
         gapi.analytics.ready(function() {
 
@@ -30,18 +32,40 @@
             gapi.analytics.auth.authorize({
                 container: 'auth-button',
                 clientid: CLIENT_ID,
-                userInfoLabel:""
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // Step 4: Create the view selector.
+
+            var viewSelector = new gapi.analytics.ViewSelector({
+                container: 'view-selector'
             });
 
             // Step 5: Create the timeline chart.
+
             var timeline = new gapi.analytics.googleCharts.DataChart({
                 reportType: 'ga',
                 query: {
                     'dimensions': 'ga:date',
-                    'metrics': 'ga:sessions',
+                    'metrics': 'ga:pageviews',
                     'start-date': '30daysAgo',
                     'end-date': 'yesterday',
-                    'ids': "ga:31405"
                 },
                 chart: {
                     type: 'LINE',
@@ -49,13 +73,40 @@
                 }
             });
 
-            gapi.analytics.auth.on('success', function(response) {
-                //hide the auth-button
-                document.querySelector("#auth-button").style.display='none';
-
-                timeline.execute();
-
+            var timelineB = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    'dimensions': 'ga:date',
+                    'metrics': 'ga:pageviews',
+                    'start-date': '30daysAgo',
+                    'end-date': 'yesterday',
+                },
+                chart: {
+                    type: 'LINE',
+                    container: 'timelineB'
+                }
             });
-insta
+
+            // Step 6: Hook up the components to work together.
+
+            gapi.analytics.auth.on('success', function(response) {
+                viewSelector.execute();
+            });
+
+            viewSelector.on('change', function(ids) {
+                var newIds = {
+                    query: {
+                        ids: ids
+                    }
+                }
+                timeline.set(newIds).execute();
+                timelineB.set(newIds).execute();
+            });
         });
     </script>
+
+
+
+
+<!--    ---------------------------------------   -->
+

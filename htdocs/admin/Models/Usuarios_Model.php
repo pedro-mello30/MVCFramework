@@ -2,6 +2,7 @@
 class Usuarios_Model extends Model
 {
     protected static $tableName = "admin_users";
+    protected static $tableLoginHistory = "history_login";
 
     public function __construct($data = null)
     {
@@ -26,6 +27,14 @@ class Usuarios_Model extends Model
             unset($r->schema["password"]);
             unset($r->schema["token"]);
         }
+
+        return $return;
+    }
+
+    public static function getLoginHistory($id) : ?array
+    {
+        $idName = self::getIDName();
+        $return = LoginHistory_Model::getAllBy($idName, $id);
 
         return $return;
     }

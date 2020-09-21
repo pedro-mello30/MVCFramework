@@ -63,8 +63,8 @@ class usuarios extends Controller
     }
 
     public function visualizar($params = null){
-        $output["usuario"] = Usuarios_Model::getBy(Usuarios_Model::getIDName(), $params[0]);
-
+        $output["user"] = Usuarios_Model::getBy(Usuarios_Model::getIDName(), $params[0]);
+        $output["history"] = Usuarios_Model::getLoginHistory($params[0]);
         $this->view("visualizar", $output);
     }
 
