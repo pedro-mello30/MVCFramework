@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da1c0bf3-d8ac-49d8-8ef3-63a622ecc070" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/htdocs/src/assets/sass/_usuarios.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Controllers/usuariosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Controllers/usuariosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Views/Usuarios/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Views/Usuarios/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Views/Usuarios/usuarios.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Views/Usuarios/usuarios.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/admin/Views/Home/login.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Views/Home/login.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/admin/Views/Layouts/default.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Views/Layouts/default.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/admin/Webroot/css/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Webroot/css/signin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/admin/Webroot/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Webroot/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/src/.sass-cache/9b024004796c06ed747d0480b5610345c2605e48/style.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/.sass-cache/9b024004796c06ed747d0480b5610345c2605e48/style.scssc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/src/.sass-cache/9b024004796c06ed747d0480b5610345c2605e48/_header.sassc" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/.sass-cache/9b024004796c06ed747d0480b5610345c2605e48/_header.sassc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/src/assets/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/src/assets/sass/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +121,8 @@
       <workItem from="1599847862818" duration="1800000" />
       <workItem from="1600378005044" duration="606000" />
       <workItem from="1600450697067" duration="3365000" />
-      <workItem from="1600706144836" duration="4473000" />
+      <workItem from="1600706144836" duration="5588000" />
+      <workItem from="1600892308764" duration="1011000" />
     </task>
     <servers />
   </component>
