@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="da1c0bf3-d8ac-49d8-8ef3-63a622ecc070" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/admin/Views/Usuarios/visualizar.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Views/Usuarios/visualizar.phtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -117,7 +117,8 @@
       <workItem from="1600378005044" duration="606000" />
       <workItem from="1600450697067" duration="3365000" />
       <workItem from="1600706144836" duration="5588000" />
-      <workItem from="1600892308764" duration="1521000" />
+      <workItem from="1600892308764" duration="4125000" />
+      <workItem from="1601321390480" duration="507000" />
     </task>
     <servers />
   </component>
@@ -129,6 +130,14 @@
       <screen x="52" y="27" width="2508" height="1053" />
     </state>
     <state x="386" y="355" width="576" height="403" key="#com.intellij.fileTypes.FileTypeChooser/52.27.2508.1053/2560.0.1920.1080@52.27.2508.1053" timestamp="1597843173524" />
+    <state x="394" y="27" width="550" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601321844115">
+      <screen x="52" y="27" width="2508" height="1053" />
+    </state>
+    <state x="394" y="27" width="550" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/52.27.2508.1053/2560.0.1920.1080@52.27.2508.1053" timestamp="1601321844115" />
+    <state x="415" y="406" width="518" height="301" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1601321246017">
+      <screen x="52" y="27" width="4428" height="1053" />
+    </state>
+    <state x="415" y="406" width="518" height="301" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/52.27.4428.1053@52.27.4428.1053" timestamp="1601321246017" />
     <state x="474" y="479" width="399" height="156" key="NewPhpFileDialog" timestamp="1600708418310">
       <screen x="52" y="27" width="2508" height="1053" />
     </state>
@@ -138,6 +147,10 @@
     </state>
     <state x="473" y="343" width="1022" height="737" key="SettingsEditor/52.27.1868.1053@52.27.1868.1053" timestamp="1594927977484" />
     <state x="617" y="343" key="SettingsEditor/52.27.2508.1053/2560.0.1920.1080@52.27.2508.1053" timestamp="1598455730087" />
+    <state x="365" y="162" width="618" height="783" key="find.popup" timestamp="1601321655664">
+      <screen x="52" y="27" width="2508" height="1053" />
+    </state>
+    <state x="365" y="162" width="618" height="783" key="find.popup/52.27.2508.1053/2560.0.1920.1080@52.27.2508.1053" timestamp="1601321655664" />
     <state x="217" y="252" key="run.anything.popup" timestamp="1597846616850">
       <screen x="52" y="27" width="2508" height="1053" />
     </state>
