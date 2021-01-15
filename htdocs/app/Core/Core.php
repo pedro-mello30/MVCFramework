@@ -35,101 +35,63 @@
  *
  */
 
-class usuarios extends Controller
+class Core
 {
-    private   $output;
+    public $route;
 
-    public function init($params = null)
+    function __construct()
     {
-        AuthHelper::checkLogin();
-
-        parent::init();
-        $this->_dados[] = '';
-
-        $m = new Usuarios_Model();
-        parent::setModelController();
+        $this->route = new Router(new Request());
     }
 
-    public function index_action($params = null)
+    public function getRoute() : Router
     {
-        $this->listar($params);
+        return $this->route;
     }
 
-    public function listar($params = null)
+    function start()
     {
-        $this->output['usuarios'] = Usuarios_Model::getAll();
+        $controller = $this->route->getController();
+        $action = $this->route->getAction();
+        $params = $this->route->getParameters();
+        $controller_path = CONTROLLERS .  $controller . "Controller.php";
 
-        $this->view('index', $this->output);
-    }
-
-    public function visualizar($params = null){
-
-        $output["user"] = Usuarios_Model::getBy(Usuarios_Model::getIDName(), $params[0]);
-
-
-
-
-        $output["history"] = Usuarios_Model::getLoginHistory($params[0]);
-        $this->view("visualizar", $output);
-    }
-
-    public function adicionar($params = null)
-    {
-        if($_POST){
-            $auth = new AuthHelper();
-            if($auth->signUp($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'])) {
-                RedirectHelper::goToController("usuarios");
-            }
-            else {
-                $this->view('usuarios', array('erro' => 'Erro adicionar!'));
-            }
-
+        if ( !file_exists( $controller_path ) )
+        {
+            new ErrorHelper('controller');
         }
 
-        $this->view('usuarios');
-    }
+        require_once( $controller_path );
+        $app = new $controller();
 
-    public function editar($params = null)
-    {
-        if(!isset($params[0]))
-            $this->getRedir()->goToControllerAction('usuarios', 'adicionar');
+        if (!method_exists($app, $action))
+        {
+            new ErrorHelper('action');
+        }
 
-        $idName = Usuarios_Model::getIDName();
-        $this->output['usuario'] = Usuarios_Model::getBy($idName, $params[0]);
+        if(empty($params))
+        {
+            $app->init();
+            $app->$action();
+        }
+        else
+        {
+            $i = 0;
 
-        if($_POST){
-            $_POST[$idName] = $params[0];
+            $valores = array();
 
-            foreach ($_POST as $key => $d)
+            foreach ($params as $p)
             {
-//                If in case the _post form have passwords fields ## Use the AuthHelper
-//                if($key !== "c_password" || "password" || "currentpassword")
-                    $data[$key] = $d;
+                $valores[$i] = $p;
+                $i++;
             }
-            $user = new Usuarios_Model($data);
-            $user->save();
-            RedirectHelper::goToController("usuarios");
+            $app->init($valores);
+            $app->$action($valores);
+
         }
-
-        $this->view('usuarios', $this->output);
     }
-
-    public function delete($params = null){
-        $idName = Usuarios_Model::getIDName();
-        $user = new Usuarios_Model(array($idName => $params[0]));
-        $user->delete();
-
-        $this -> getRedir()->goToControllerAction('usuarios', 'listar');
-    }
-
-    public function testeRedirect($parameters)
-    {
-        echo RedirectHelper::getUrlParameters();
-        print_r($_GET);
-
-    }
-
 }
 
 
 
+?>

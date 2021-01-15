@@ -11,7 +11,7 @@ class RedirectHelper
     public static function goTo($data)
 	{	
 //		 echo  "Location: " . URL . $data;
-		header("Location: " . URL_ADMIN . $data);
+		header("Location: " . URL . $data);
 		exit();
 	}
 

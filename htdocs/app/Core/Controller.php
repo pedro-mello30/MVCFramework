@@ -35,101 +35,83 @@
  *
  */
 
-class usuarios extends Controller
+abstract class Controller
 {
-    private   $output;
+    protected $layout = 'default';
+    protected $redir = null;
+    protected $modelController = null;
 
-    public function init($params = null)
+	function __construct()
     {
-        AuthHelper::checkLogin();
-
-        parent::init();
-        $this->_dados[] = '';
-
-        $m = new Usuarios_Model();
-        parent::setModelController();
+        $this->redir = new RedirectHelper();
     }
 
-    public function index_action($params = null)
+    public function init()
     {
-        $this->listar($params);
+
     }
 
-    public function listar($params = null)
+    public function getLayout() : string
     {
-        $this->output['usuarios'] = Usuarios_Model::getAll();
-
-        $this->view('index', $this->output);
+        return $this->layout;
     }
 
-    public function visualizar($params = null){
-
-        $output["user"] = Usuarios_Model::getBy(Usuarios_Model::getIDName(), $params[0]);
-
-
-
-
-        $output["history"] = Usuarios_Model::getLoginHistory($params[0]);
-        $this->view("visualizar", $output);
+    public function setModelController($modelController = null)
+    {
+        $this->modelController = (isset($modelController)) ? $modelController : $this->getModelInstance();
     }
 
-    public function adicionar($params = null)
+    private function getModelInstance()
     {
-        if($_POST){
-            $auth = new AuthHelper();
-            if($auth->signUp($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'])) {
-                RedirectHelper::goToController("usuarios");
-            }
-            else {
-                $this->view('usuarios', array('erro' => 'Erro adicionar!'));
-            }
+        $modelName =  ucfirst(RedirectHelper::getCurrentController()."_Model");
+        $modelFile = MODELS . $modelName . ".php";
 
+        if ( !file_exists( $modelFile ) )
+        {
+            new ErrorHelper('model');
         }
 
-        $this->view('usuarios');
+        require_once( $modelFile );
+
+        return new $modelName();
     }
 
-    public function editar($params = null)
+    public function getRedir() : RedirectHelper
     {
-        if(!isset($params[0]))
-            $this->getRedir()->goToControllerAction('usuarios', 'adicionar');
-
-        $idName = Usuarios_Model::getIDName();
-        $this->output['usuario'] = Usuarios_Model::getBy($idName, $params[0]);
-
-        if($_POST){
-            $_POST[$idName] = $params[0];
-
-            foreach ($_POST as $key => $d)
-            {
-//                If in case the _post form have passwords fields ## Use the AuthHelper
-//                if($key !== "c_password" || "password" || "currentpassword")
-                    $data[$key] = $d;
-            }
-            $user = new Usuarios_Model($data);
-            $user->save();
-            RedirectHelper::goToController("usuarios");
-        }
-
-        $this->view('usuarios', $this->output);
+        return $this->redir;
     }
 
-    public function delete($params = null){
-        $idName = Usuarios_Model::getIDName();
-        $user = new Usuarios_Model(array($idName => $params[0]));
-        $user->delete();
-
-        $this -> getRedir()->goToControllerAction('usuarios', 'listar');
-    }
-
-    public function testeRedirect($parameters)
+    public function getModelController() : Model
     {
-        echo RedirectHelper::getUrlParameters();
-        print_r($_GET);
+        return $this->modelController;
+    }
 
+    protected function view($nome_pagina, $vars = null )
+    {
+
+        $builder = new ViewBuilder($this);
+
+        $viewFile = $this->getViewPath() . "/" .$nome_pagina . ".phtml";
+        $conteudo = $builder->buildView($viewFile, $vars);
+
+        $tags = array('conteudo' => $conteudo);
+
+        $builder->buildLayout($tags);
+
+        echo $builder->display();
+        exit();
+    }
+
+    public function getViewPath()
+    {
+        $act = explode("-", RedirectHelper::getCurrentController());
+
+        foreach ($act as $key => $value)
+            $act[$key] = ucfirst($value);
+
+        $pasta = implode("", $act);
+
+        return VIEWS . $pasta;
     }
 
 }
-
-
-

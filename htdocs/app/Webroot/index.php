@@ -2,7 +2,7 @@
 
 
 //   print_r($_SERVER);
-	error_reporting(0);
+	error_reporting(1);
 	session_start();
 
 	date_default_timezone_set("Brazil/East");
@@ -22,24 +22,24 @@
 	if (!defined('APP_DIR'))
 		define('APP_DIR', basename(dirname(dirname(__FILE__))));
 
-	$_SERVER['PHP_SELF'] = str_replace("admin/Webroot/index.php", "", $_SERVER['PHP_SELF']);
+	$_SERVER['PHP_SELF'] = str_replace("app/Webroot/index.php", "", $_SERVER['PHP_SELF']);
 
 	define('URL', $_SERVER['PHP_SELF'] );
 	define('URL_ADMIN', $_SERVER['PHP_SELF'] . "admin/");
-	define('IMG', URL . "admin/img/");
-	define('JS', URL . "admin/js/");
-	define('CSS', URL . "admin/css/");
+	define('IMG', URL . "app/img/");
+	define('JS', URL . "app/js/");
+	define('CSS', URL . "app/css/");
 	define('FULL_URL', "http://" . $_SERVER['SERVER_NAME'] . URL);
 
-	define( 'LIB', '../../admin/Lib/' );
-	define( 'FILES',  '../../admin/Webroot/files/' );
-	define( 'CONTROLLERS', '../../admin/Controllers/' );
-	define( 'VIEWS', '../../admin/Views/' );
-	define( 'LAYOUT', '../../admin/Views/Layouts/' );
-	define( 'MODELS', '../../admin/Models/' );
-	define( 'HELPERS', '../../admin/Core/Helpers/' );
-	define( 'CORE', '../../admin/Core/' );
-	define( 'CONFIG', '../../admin/Config/' );
+	define( 'LIB', '../../app/Lib/' );
+	define( 'FILES',  '../../app/Webroot/files/' );
+	define( 'CONTROLLERS', '../../app/Controllers/' );
+	define( 'VIEWS', '../../app/Views/' );
+	define( 'LAYOUT', '../../app/Views/Layouts/' );
+	define( 'MODELS', '../../app/Models/' );
+	define( 'HELPERS', '../../app/Core/Helpers/' );
+	define( 'CORE', '../../app/Core/' );
+	define( 'CONFIG', '../../app/Config/' );
 
 	function __autoload($file)
 	{

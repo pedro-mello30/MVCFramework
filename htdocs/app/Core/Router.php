@@ -35,101 +35,95 @@
  *
  */
 
-class usuarios extends Controller
+class Router
 {
-    private   $output;
+    private $request;
+    private $explode;
+    public  $controller;
+    public  $action;
+    public  $parameters;
 
-    public function init($params = null)
+    function __construct($newRequest)
     {
-        AuthHelper::checkLogin();
-
-        parent::init();
-        $this->_dados[] = '';
-
-        $m = new Usuarios_Model();
-        parent::setModelController();
+        $this -> request = $newRequest;
+        $this->setExplode();
+        $this->setController();
+        $this->setAction();
+        $this->setParameters();
+        $this->setGets();
     }
 
-    public function index_action($params = null)
+    private function setExplode()
     {
-        $this->listar($params);
+        // echo "setExplode\n";
+        $this->explode = explode("/", $this->request->getUrl());
     }
 
-    public function listar($params = null)
+    private function setController()
     {
-        $this->output['usuarios'] = Usuarios_Model::getAll();
-
-        $this->view('index', $this->output);
+        // echo "setController\n";
+        $this-> controller = $this -> sanitizeString($this -> explode[0]);
     }
 
-    public function visualizar($params = null){
+    private function setAction()
+    {
+        $newAction = (!isset($this->explode[1]) || $this->explode[1] == null || $this->explode[1] == 'index') ? 'index_action' : $this->explode[1];
 
-        $output["user"] = Usuarios_Model::getBy(Usuarios_Model::getIDName(), $params[0]);
-
-
-
-
-        $output["history"] = Usuarios_Model::getLoginHistory($params[0]);
-        $this->view("visualizar", $output);
+        $this-> action = $this -> sanitizeString($newAction);
     }
 
-    public function adicionar($params = null)
+    public function setParameters()
     {
-        if($_POST){
-            $auth = new AuthHelper();
-            if($auth->signUp($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'])) {
-                RedirectHelper::goToController("usuarios");
-            }
-            else {
-                $this->view('usuarios', array('erro' => 'Erro adicionar!'));
-            }
+        $this->parameters = $this->explode;
+        unset($this->parameters[0], $this->parameters[1]);
 
-        }
-
-        $this->view('usuarios');
+        if(end($this->parameters ) == null)
+            array_pop($this->parameters);
     }
 
-    public function editar($params = null)
+    public function setGets()
     {
-        if(!isset($params[0]))
-            $this->getRedir()->goToControllerAction('usuarios', 'adicionar');
+        $explodeGet = explode("?", $_SERVER['REQUEST_URI']);
 
-        $idName = Usuarios_Model::getIDName();
-        $this->output['usuario'] = Usuarios_Model::getBy($idName, $params[0]);
+        if(isset($explodeGet[1]))
+        {
+            $urlGetParams = explode("&", $explodeGet[1]);
 
-        if($_POST){
-            $_POST[$idName] = $params[0];
-
-            foreach ($_POST as $key => $d)
+            foreach ($urlGetParams as $g)
             {
-//                If in case the _post form have passwords fields ## Use the AuthHelper
-//                if($key !== "c_password" || "password" || "currentpassword")
-                    $data[$key] = $d;
+                $get = explode("=", $g);
+                $_GET[$get[0]] = $get[1];
             }
-            $user = new Usuarios_Model($data);
-            $user->save();
-            RedirectHelper::goToController("usuarios");
+        }
+    }
+
+    public function getController()
+    {
+        return $this-> controller;
+    }
+
+    public function getAction()
+    {
+        return $this-> action;
+    }
+
+    public function getParameters()
+    {
+        return $this-> parameters;
+    }
+
+    private function sanitizeString($string)
+    {
+        // echo "sanitizeString\n";
+        $exp = explode("-", $string);
+        for ($i=1; $i < count($exp); $i++) {
+            $exp[$i] = ucfirst($exp[$i]);
+
         }
 
-        $this->view('usuarios', $this->output);
+        return implode("", $exp);
     }
-
-    public function delete($params = null){
-        $idName = Usuarios_Model::getIDName();
-        $user = new Usuarios_Model(array($idName => $params[0]));
-        $user->delete();
-
-        $this -> getRedir()->goToControllerAction('usuarios', 'listar');
-    }
-
-    public function testeRedirect($parameters)
-    {
-        echo RedirectHelper::getUrlParameters();
-        print_r($_GET);
-
-    }
-
 }
 
 
-
+?>

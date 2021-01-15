@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da1c0bf3-d8ac-49d8-8ef3-63a622ecc070" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/admin/Controllers/usuariosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Controllers/usuariosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/admin/Core/Helpers/RedirectHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Core/Helpers/RedirectHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/admin/Views/Home/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Views/Home/index.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/admin/Webroot/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/admin/Webroot/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +45,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -119,6 +127,20 @@
       <workItem from="1600706144836" duration="5588000" />
       <workItem from="1600892308764" duration="4125000" />
       <workItem from="1601321390480" duration="507000" />
+      <workItem from="1601322388226" duration="14000" />
+      <workItem from="1601322440221" duration="40000" />
+      <workItem from="1602686622209" duration="23000" />
+      <workItem from="1602691930857" duration="62000" />
+      <workItem from="1602804395543" duration="622000" />
+      <workItem from="1603161615467" duration="149000" />
+      <workItem from="1603388854362" duration="3642000" />
+      <workItem from="1603457908535" duration="1477000" />
+      <workItem from="1603748119088" duration="43000" />
+      <workItem from="1605652514190" duration="1100000" />
+      <workItem from="1605654513727" duration="357000" />
+      <workItem from="1605726261961" duration="28000" />
+      <workItem from="1610573474032" duration="726000" />
+      <workItem from="1610643011153" duration="1237000" />
     </task>
     <servers />
   </component>
@@ -138,14 +160,18 @@
       <screen x="52" y="27" width="4428" height="1053" />
     </state>
     <state x="415" y="406" width="518" height="301" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/52.27.4428.1053@52.27.4428.1053" timestamp="1601321246017" />
+    <state x="452" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601322398708">
+      <screen x="52" y="27" width="2508" height="1053" />
+    </state>
+    <state x="452" y="311" width="424" height="491" key="FileChooserDialogImpl/52.27.2508.1053/2560.0.1920.1080@52.27.2508.1053" timestamp="1601322398708" />
     <state x="474" y="479" width="399" height="156" key="NewPhpFileDialog" timestamp="1600708418310">
       <screen x="52" y="27" width="2508" height="1053" />
     </state>
     <state x="474" y="479" width="399" height="156" key="NewPhpFileDialog/52.27.2508.1053/2560.0.1920.1080@52.27.2508.1053" timestamp="1600708418310" />
-    <state x="617" y="343" width="1022" height="737" key="SettingsEditor" timestamp="1598455730087">
-      <screen x="52" y="27" width="2508" height="1053" />
+    <state x="473" y="343" width="1022" height="737" key="SettingsEditor" timestamp="1603457981919">
+      <screen x="52" y="27" width="1868" height="1053" />
     </state>
-    <state x="473" y="343" width="1022" height="737" key="SettingsEditor/52.27.1868.1053@52.27.1868.1053" timestamp="1594927977484" />
+    <state x="473" y="343" width="1022" height="737" key="SettingsEditor/52.27.1868.1053@52.27.1868.1053" timestamp="1603457981919" />
     <state x="617" y="343" key="SettingsEditor/52.27.2508.1053/2560.0.1920.1080@52.27.2508.1053" timestamp="1598455730087" />
     <state x="365" y="162" width="618" height="783" key="find.popup" timestamp="1601321655664">
       <screen x="52" y="27" width="2508" height="1053" />

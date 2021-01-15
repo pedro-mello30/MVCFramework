@@ -35,101 +35,60 @@
  *
  */
 
-class usuarios extends Controller
+class ViewBuilder
 {
-    private   $output;
+    private $output;
+    private $controller;
 
-    public function init($params = null)
+    function __construct($controller)
     {
-        AuthHelper::checkLogin();
+        $this->controller = $controller;
+        $layoutFile =  LAYOUT . $this->controller->getLayout().".phtml";
 
-        parent::init();
-        $this->_dados[] = '';
 
-        $m = new Usuarios_Model();
-        parent::setModelController();
+         //// ALERT HERE KKKK
+        (file_exists($layoutFile)) ? $this->output = $this->parseFile($layoutFile) : new ErrorHelper("layout");
     }
 
-    public function index_action($params = null)
+    function buildLayout($tags = array())
     {
-        $this->listar($params);
-    }
-
-    public function listar($params = null)
-    {
-        $this->output['usuarios'] = Usuarios_Model::getAll();
-
-        $this->view('index', $this->output);
-    }
-
-    public function visualizar($params = null){
-
-        $output["user"] = Usuarios_Model::getBy(Usuarios_Model::getIDName(), $params[0]);
-
-
-
-
-        $output["history"] = Usuarios_Model::getLoginHistory($params[0]);
-        $this->view("visualizar", $output);
-    }
-
-    public function adicionar($params = null)
-    {
-        if($_POST){
-            $auth = new AuthHelper();
-            if($auth->signUp($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'])) {
-                RedirectHelper::goToController("usuarios");
-            }
-            else {
-                $this->view('usuarios', array('erro' => 'Erro adicionar!'));
-            }
-
-        }
-
-        $this->view('usuarios');
-    }
-
-    public function editar($params = null)
-    {
-        if(!isset($params[0]))
-            $this->getRedir()->goToControllerAction('usuarios', 'adicionar');
-
-        $idName = Usuarios_Model::getIDName();
-        $this->output['usuario'] = Usuarios_Model::getBy($idName, $params[0]);
-
-        if($_POST){
-            $_POST[$idName] = $params[0];
-
-            foreach ($_POST as $key => $d)
+        if(count($tags) > 0)
+        {
+            foreach($tags as $tag =>$data)
             {
-//                If in case the _post form have passwords fields ## Use the AuthHelper
-//                if($key !== "c_password" || "password" || "currentpassword")
-                    $data[$key] = $d;
+                $data  =  (file_exists($data)) ? $this->parseFile($data) : $data;
+                $this->output  =  str_replace('{'.$tag.'}',$data, $this->output);
             }
-            $user = new Usuarios_Model($data);
-            $user->save();
-            RedirectHelper::goToController("usuarios");
         }
-
-        $this->view('usuarios', $this->output);
     }
 
-    public function delete($params = null){
-        $idName = Usuarios_Model::getIDName();
-        $user = new Usuarios_Model(array($idName => $params[0]));
-        $user->delete();
-
-        $this -> getRedir()->goToControllerAction('usuarios', 'listar');
-    }
-
-    public function testeRedirect($parameters)
+    function buildView($file, $vars = array())
     {
-        echo RedirectHelper::getUrlParameters();
-        print_r($_GET);
 
+        if(count($vars) > 0)
+            extract($vars);
+
+        ob_start();
+            include($file);
+            $content  =  ob_get_contents();
+        ob_end_clean();
+
+        return $content;
+    }
+
+    function parseFile($file)
+    {
+        ob_start();
+            include($file);
+            $content  =  ob_get_contents();
+        ob_end_clean();
+
+        return $content;
+    }
+
+    function display()
+    {
+        return $this->output;
     }
 
 }
-
-
-
