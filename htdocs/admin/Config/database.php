@@ -19,4 +19,5 @@ class DATABASE_CONFIG
         'senha' => 'root',
         'banco' => 'default',
     );
+
 }

@@ -1,5 +1,5 @@
 <?php
-class contato extends Controller implements CRUD
+class contato extends Controller
 {
     public function init($params = null)
     {
@@ -10,26 +10,14 @@ class contato extends Controller implements CRUD
 
     public function index_action($params = null)
     {
-        $this->view('index');
+        $dados['contatos'] = Contato_Model::getAll();
+        $this->view('index', $dados);
     }
 
-    public function lista($params = null)
+    public function visualizar($params = null)
     {
-        parent::list($params);
+        $dados['contato'] = Contato_Model::getBy('id_contato', $params[0]);
+        $this->view('visualizar', $dados);
     }
 
-    public function adicionar($params = null)
-    {
-        $this->add($params);
-    }
-
-    public function editar($params = null)
-    {
-        $this->edit($params);
-    }
-
-    public function deletar($params = null)
-    {
-        $this->del($params);
-    }
 }

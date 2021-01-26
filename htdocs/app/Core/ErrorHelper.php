@@ -85,6 +85,6 @@ class ErrorHelper
     function redirectErrorPage()
     {
         error_reporting(0);
-        header('Location:' . URL_ADMIN . 'erro/pagina_nao_encontrada');
+        header('Location:' . URL . 'erro');
     }
 }

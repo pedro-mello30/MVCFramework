@@ -43,12 +43,12 @@ abstract class Controller
 
 	function __construct()
     {
-        $this->redir = new RedirectHelper();
+//        $this->redir = new RedirectHelper();
     }
 
     public function init()
     {
-
+//        echo "init";
     }
 
     public function getLayout() : string

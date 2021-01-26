@@ -11,7 +11,7 @@ class ImageHelper
 	function __construct()
 	{
 
-		$this->_pasta 			=  FILES;
+		$this->_pasta 			=  FILES_APP;
 		$this->_ext 			=  ".jpeg";
 
 		//VERIFICA SE A PASTA JÁ EXISTE, SE NÃO EXISTIR, ELA SERÁ CRIADA
@@ -76,6 +76,7 @@ class ImageHelper
         $imgM = $this->saveImage($imageMin, $imagePath . ".min", 30);
 
         return ( ($img == $imgM) && ($img == 1) )? $imageName : false;
+//        return "saveCompressed";
 	}
 
     private function save($image)
@@ -91,12 +92,13 @@ class ImageHelper
     {
         $file_info = getimagesize($data['tmp_name']);
 
-        if ($file_info['mime'] == "image/jpeg")
+        if ($file_info['mime'] == "image/jpeg") {
             $image = imagecreatefromjpeg($data['tmp_name']);
-        else if ($file_info['mime'] == "image/gif")
-                $image = imagecreatefromgif($data['tmp_name']);
-        else if ($file_info['mime'] == "image/png")
+        }else if ($file_info['mime'] == "image/gif") {
+            $image = imagecreatefromgif($data['tmp_name']);
+        }else if ($file_info['mime'] == "image/png") {
             $image = imagecreatefrompng($data['tmp_name']);
+        }
 
         return $image;
 

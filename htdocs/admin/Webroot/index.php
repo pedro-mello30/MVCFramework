@@ -1,11 +1,13 @@
 <?php
 
 
-//   print_r($_SERVER);
+//  print_r($_SERVER);
+//	error_reporting(E_ALL);
 	error_reporting(0);
 	session_start();
 
 	date_default_timezone_set("Brazil/East");
+
 
     if (get_magic_quotes_gpc()) {
         function magicQuotes_awStripslashes(&$value, $key) {$value = stripslashes($value);}
@@ -30,6 +32,11 @@
 	define('JS', URL . "admin/js/");
 	define('CSS', URL . "admin/css/");
 	define('FULL_URL', "http://" . $_SERVER['SERVER_NAME'] . URL);
+
+
+	define('FILES_APP', "../../app/Webroot/files/");
+
+
 
 	define( 'LIB', '../../admin/Lib/' );
 	define( 'FILES',  '../../admin/Webroot/files/' );
@@ -65,3 +72,4 @@
 
 	 $core = new Core();
 	 $core -> start();
+

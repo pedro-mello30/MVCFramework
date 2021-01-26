@@ -2,7 +2,7 @@
   <html class="no-js" lang="pt-br">
 
       <head>
-          <title>Admin Template PHP</title>
+          <title>Admin 70E7</title>
 
           <meta charset="UTF-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -14,21 +14,35 @@
 
 
           <!-- CSS -->
-<!--          <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" />-->
           <link rel="stylesheet" type="text/css" href="<?= CSS ?>style.css" />
+
+          <link rel="apple-touch-icon" sizes="57x57" href="<?= IMG ?>favicon/apple-icon-57x57.png">
+          <link rel="apple-touch-icon" sizes="60x60" href="<?= IMG ?>favicon/apple-icon-60x60.png">
+          <link rel="apple-touch-icon" sizes="72x72" href="<?= IMG ?>favicon/apple-icon-72x72.png">
+          <link rel="apple-touch-icon" sizes="76x76" href="<?= IMG ?>favicon/apple-icon-76x76.png">
+          <link rel="apple-touch-icon" sizes="114x114" href="<?= IMG ?>favicon/apple-icon-114x114.png">
+          <link rel="apple-touch-icon" sizes="120x120" href="<?= IMG ?>favicon/apple-icon-120x120.png">
+          <link rel="apple-touch-icon" sizes="144x144" href="<?= IMG ?>favicon/apple-icon-144x144.png">
+          <link rel="apple-touch-icon" sizes="152x152" href="<?= IMG ?>favicon/apple-icon-152x152.png">
+          <link rel="apple-touch-icon" sizes="180x180" href="<?= IMG ?>favicon/apple-icon-180x180.png">
+          <link rel="icon" type="image/png" sizes="192x192"  href="<?= IMG ?>favicon/android-icon-192x192.png">
+          <link rel="icon" type="image/png" sizes="32x32" href="<?= IMG ?>favicon/favicon-32x32.png">
+          <link rel="icon" type="image/png" sizes="96x96" href="<?= IMG ?>favicon/favicon-96x96.png">
+          <link rel="icon" type="image/png" sizes="16x16" href="<?= IMG ?>favicon/favicon-16x16.png">
+
 
       </head>
 
 
 
 
-      <body>
+      <body data-path='<?=URL_ADMIN?>'>
           <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
               <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><?= $_SESSION['user']['name'] ?></a>
         <!--      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
               <ul class="navbar-nav px-3">
                   <li class="nav-item text-nowrap">
-                      <a class="nav-link" href="<?= URL_ADMIN ?>home/logout">Sign out</a>
+                      <a class="nav-link" href="<?= URL_ADMIN ?>home/logout">Sair</a>
                   </li>
               </ul>
           </nav>
@@ -43,14 +57,15 @@
                                       Dashboard <span class="sr-only">(current)</span>
                                   </a>
                               </li>
+
                               <li class="nav-item d-flex justify-content-between align-items-center text-muted pr-3">
                                   <a class="nav-link <?= (RedirectHelper::getCurrentController() == "usuarios") ? "active" : "" ?>" href="<?= URL_ADMIN ?>usuarios">
                                       <span data-feather="users"></span>
-                                      Usuários
+                                      Usuarios
                                   </a>
                                   <a class="d-flex align-items-center text-muted" href="<?= URL_ADMIN ?>usuarios/adicionar">
-                                                                <span data-feather="plus-circle"></span>
-                                                            </a>
+                                      <span data-feather="plus-circle"></span>
+                                  </a>
                               </li>
                               <li class="nav-item">
                                   <a class="nav-link <?= (RedirectHelper::getCurrentController() == "contato") ? "active" : "" ?>" href="<?= URL_ADMIN ?>contato">
@@ -60,21 +75,6 @@
                               </li>
                           </ul>
 
-        <!--                  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">-->
-        <!--                      <span>Saved reports</span>-->
-        <!--                      <a class="d-flex align-items-center text-muted" href="#">-->
-        <!--                          <span data-feather="plus-circle"></span>-->
-        <!--                      </a>-->
-        <!--                  </h6>-->
-        <!--                  <ul class="nav flex-column mb-2">-->
-        <!--                      <li class="nav-item">-->
-        <!--                          <a class="nav-link" href="#">-->
-        <!--                              <span data-feather="file-text"></span>-->
-        <!--                              Current month-->
-        <!--                          </a>-->
-        <!--                      </li>-->
-        <!--                  </ul>-->
-        <!--                  -->
 
                       </div>
                   </nav>
@@ -90,7 +90,10 @@
           </footer>
 
 
-          <script src="<?= JS ?>site.min.js"></script>
+
+
+
+                  <script src="<?= JS ?>site.min.js"></script>
       </body>
   </html>
 
@@ -100,6 +103,7 @@
   <script>
       feather.replace()
   </script>
+
 
 
 </html>

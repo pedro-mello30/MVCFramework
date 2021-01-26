@@ -1,7 +1,10 @@
 version: "3.1"
 services:
         www:
-                image: pedromellob1/fwapachephp:latest
+#                image: pedromellob1/fwapachephp:latest
+                build:
+                        context: .
+                        dockerfile: Dockerfile
                 ports:
                         - "${APPLICATION_PORT}:80"
                 volumes:
@@ -51,8 +54,8 @@ services:
                         - ${GRUNT_PATH}:/usr/src/project
                         - ${GRUNT_TARGET_PATH}:/usr/src/project/out/
                 working_dir: /usr/src/project
-                command: bash -c "grunt-init ./boilerplate --force && npm install && grunt"
-#                command: bash -c "grunt"
+#                command: bash -c "grunt-init ./boilerplate --force && npm install && grunt"
+                command: bash -c "grunt"
         mdbook:
                 container_name: mdbook
                 image: peaceiris/mdbook
@@ -67,6 +70,19 @@ services:
                         - serve
                         - --hostname
                         - '0.0.0.0'
+        gruntadm:
+                image: pedromellob1/fwgrunt:latest
+                #                build:
+                #                        context: .
+                #                        dockerfile: Dockerfile
+                links:
+                        - www
+                volumes:
+                        - ${GRUNT_ADMIN_PATH}:/usr/src/project
+                        - ${GRUNT_ADMIN_TARGET_PATH}:/usr/src/project/out/
+                working_dir: /usr/src/project
+                #                command: bash -c "grunt-init ./boilerplate --force && npm install && grunt"
+                command: bash -c "grunt"
 #        gruntadm:
 #                build:
 #                        context: ./grunt

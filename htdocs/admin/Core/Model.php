@@ -287,6 +287,7 @@ abstract class Model
             echo $e->getMessage();
             return false;
         }
+        $this->schema[$idName]["value"] = self::getConnectionPDO()->lastInsertId();
         return true;
     }
 

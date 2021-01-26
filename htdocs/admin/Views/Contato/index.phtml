@@ -1,0 +1,78 @@
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Contatos</h1>
+<!--    <div class="btn-toolbar mb-2 mb-md-0">-->
+<!--        <a class="btn btn-sm btn-outline-secondary" href="--><?//= URL_ADMIN ?><!--projetos/adicionar">-->
+<!--            <span data-feather="plus"></span> Adicionar-->
+<!--        </a>-->
+<!--    </div>-->
+</div>
+<table id="data-table" class="table table-striped table-bordered data-table" style="width:100%">
+    <thead>
+    <tr>
+
+        <th>Data</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Assunto</th>
+        <th>Mensagem</th>
+        <!--        <th>Status</th>-->
+        <th class="wactions">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <?php foreach ($contatos as $info): ?>
+
+        <tr>
+            <td><?= $info->data ?></td>
+            <td><?= $info->nome ?></td>
+            <td><?= $info->email ?></td>
+            <td><?= $info->telefone ?></td>
+            <td><?= $info->assunto ?></td>
+            <td><?= $info->mensagem ?></td>
+            <!--            <td>--><?//= $info->status ?><!--</td>-->
+
+
+            <td class='wactions'>
+
+<!--                 VISUALIZAR -->
+                                <a title='visualizar' href='<?= URL_ADMIN ?>contato/visualizar/<?= $info->id_contato ?>' class='btn btn-small btn-primary'>
+                                    <span data-feather="eye"></span>
+                                </a>
+
+                <!-- EDITAR -->
+                <!--                <a title='editar' href='--><?//= URL_ADMIN ?><!--projetos/editar/--><?//= $info->id_projetos ?><!--' class='btn btn-small btn-success'>-->
+                <!--                    <span data-feather="edit"></span>-->
+                <!--                </a>-->
+
+                <!-- EXCLUIR -->
+<!--                <a id="del_--><?//= $info->id_admin_users ?><!--" title='excluir' data='--><?//= URL_ADMIN ?><!--projetos/delete/--><?//= $info->id_projetos ?><!--' onclick="del(this.id)" class='btn btn-small btn-danger btn-exc'>-->
+<!--                    <span data-feather="delete"></span>-->
+<!--                </a>-->
+            </td>
+
+
+        </tr>
+
+    <?php endforeach; ?>
+
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

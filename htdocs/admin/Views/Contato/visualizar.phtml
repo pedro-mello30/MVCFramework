@@ -1,0 +1,57 @@
+
+
+<div class='vendas'>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Visualizar Contato</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <a class="btn btn-sm btn-outline-secondary" href="<?= URL_ADMIN ?>contato">
+                <span data-feather="chevron-left"></span> Voltar
+            </a>
+        </div>
+    </div>
+
+    <div class='row  justify-content-center'>
+        <div class='col-md-8'>
+            <div class='x_panel'>
+                <div class='x_title'>
+                    <h4>Dados</h4>
+                    <div class='clearfix'></div>
+                </div>
+                <div class='x_content'>
+                    <div class='row dados'>
+                        <div class='col-xs-12 col-sm-4'>
+                            <infos>
+                                <strong>Nome:</strong> <?= $contato->nome ?><br>
+                                <strong>Email:</strong> <?= $contato->email ?><br>
+                                <strong>Telefone:</strong> <?= $contato->telefone ?><br>
+                            </infos>
+                        </div>
+                        <div class='col-xs-12 col-sm-4'>
+                            <status><strong>Assunto:</strong> <?= $contato->assunto ?></status>
+                        </div>
+                        <div class='col-xs-12 col-sm-4'>
+                            <data>
+                                <strong>Data:</strong> <?= $contato->data ?><br>
+                            </data>
+                        </div>
+                    </div>
+                    <div class='x_title'>
+                        <hr>
+                        <h4>Mensagem</h4>
+                        <div class='clearfix'></div>
+                    </div>
+                    <div class='row lista'>
+                        <div class="col-sm-12">
+                            <p> <?= $contato->mensagem ?></p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,18 @@
+@import "../vendor/bootstrap-4.0.0/scss/bootstrap";
+@import "../vendor/bootstrap-4.0.0/scss/bootstrap-grid";
+@import "../vendor/bootstrap-4.0.0/scss/bootstrap-reboot";
+
+//@import url(../vendor/DataTables/DataTables-1.10.21/css/dataTables.bootstrap4.css);
+@import "../vendor/DataTables/DataTables-1.10.21/css/dataTables.bootstrap4";
+//@import "./vendor/DataTables/dataTables.css";
+
+
+
+// Imports project
+@import "variables";
+@import "globals";
+@import "header";
+@import "footer";
+@import "home";
+@import "contato";
+//@import "datatable";

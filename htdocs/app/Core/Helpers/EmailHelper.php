@@ -74,7 +74,7 @@ class EmailHelper
         $this->setPort(587);
 
         $this->setFrom("no-reply@70e7.com");
-        $this->setFromName("70e7");
+        $this->setFromName("Empecom");
 
 
     }
